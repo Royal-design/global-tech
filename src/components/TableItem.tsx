@@ -69,7 +69,7 @@ export const TableItem = ({ item }: ItemType) => {
       <TableCell className="flex justify-end items-center h-[4rem] ">
         <X
           onClick={() => handleRemoveFromCart(item.id)}
-          className="w-[1.3rem] cursor-pointer h-[1.3rem] bg-gray-300 rounded-full p-1"
+          className="w-[1.3rem] cursor-pointer h-[1.3rem] dark:bg-slate-700 bg-gray-300 rounded-full p-1"
         />
       </TableCell>
     </TableRow>

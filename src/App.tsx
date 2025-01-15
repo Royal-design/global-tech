@@ -8,8 +8,6 @@ import { PrivateLayout } from "./Layout/PrivateLayout";
 import "react-toastify/dist/ReactToastify.css";
 import { RootLayout } from "./Layout/RootLayout";
 import { SpinnerLoader } from "./components/SpinnerLoader";
-import { SuccessPage } from "./Pages/SuccessPage";
-import { CancelPage } from "./Pages/CancelPage";
 
 const HomePage = lazy(() =>
   import("./Pages/HomePage").then(({ HomePage }) => ({ default: HomePage }))
@@ -80,14 +78,7 @@ const router = createBrowserRouter([
         path: "/product",
         element: <ShopPage />
       },
-      {
-        path: "/success",
-        element: <SuccessPage />
-      },
-      {
-        path: "/cancel",
-        element: <CancelPage />
-      },
+
       {
         path: "/product",
         children: [
@@ -118,10 +109,7 @@ const router = createBrowserRouter([
         path: "/contact",
         element: <ContactPage />
       },
-      {
-        path: "/shopping-cart",
-        element: <CartPage />
-      },
+
       {
         element: <PublicLayout />,
         children: [
@@ -141,6 +129,10 @@ const router = createBrowserRouter([
           {
             path: "/profile",
             element: <ProfilePage />
+          },
+          {
+            path: "/shopping-cart",
+            element: <CartPage />
           },
           {
             path: "/editprofile",

@@ -102,7 +102,7 @@ export const RecommendedProducts = () => {
                           modules={[Navigation]}
                           className="mySwiper h-full"
                         >
-                          {product.images.map((image, i) => (
+                          {product.images.map((image: string, i: number) => (
                             <SwiperSlide key={i}>
                               <img
                                 src={image}

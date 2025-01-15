@@ -10,7 +10,7 @@ import {
   Search,
   Tag
 } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
@@ -46,7 +46,6 @@ export const BlogDetailPage = () => {
   const navigate = useNavigate();
   const blog = blogData.find((blog) => blog.id === Number(blogid));
   const blogCategory = blogData.map((blog) => blog.category);
-  const [updateBlog, setUpdateBlog] = useState(blog);
   useEffect(() => {
     window.scrollTo({
       top: 0
@@ -124,13 +123,6 @@ export const BlogDetailPage = () => {
         date: new Date().toISOString(),
         image: data.image,
         content: data.content
-      };
-    });
-    setUpdateBlog((prev) => {
-      if (!prev) return prev;
-      return {
-        ...prev,
-        comments: [...(prev.comments || []), ...comments]
       };
     });
 

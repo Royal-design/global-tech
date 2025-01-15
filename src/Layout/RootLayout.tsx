@@ -12,7 +12,13 @@ export const RootLayout: FC = () => {
 
   return (
     <div>
-      <ToastContainer position="bottom-right" />
+      <ToastContainer
+        position="top-center"
+        theme="dark"
+        toastClassName={() =>
+          "bg-gray-800 text-white flex rounded-lg shadow-lg p-[0.5rem] w-full items-center "
+        }
+      />
       {!loginPage && !registerPage && <Navbar />}
       <main>
         <Outlet />

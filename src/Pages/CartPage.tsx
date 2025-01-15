@@ -10,11 +10,9 @@ import {
   TableHeader,
   TableRow
 } from "@/components/ui/table";
-import { functions } from "@/Config/firebase";
-import { clearCart } from "@/redux/slice/cartSlice";
+import { clearCart, order } from "@/redux/slice/cartSlice";
 import { RootState } from "@/redux/store";
-import { httpsCallable } from "firebase/functions";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 // Add a type definition for the Stripe property on the window object
 declare global {
@@ -23,14 +21,20 @@ declare global {
   }
 }
 import { useDispatch, useSelector } from "react-redux";
+import Checkout from "@/components/Checkout";
+import { useNavigate } from "react-router-dom";
+import { addDoc, collection, serverTimestamp } from "firebase/firestore";
+import { db } from "@/Config/firebase";
+import { UseAuthContext } from "@/Context/Auth/UseAuthContext";
 
 export const CartPage = () => {
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
+  const { user } = UseAuthContext();
+  const navigate = useNavigate();
   const cartItems = useSelector((state: RootState) => state.cart.items);
   const totalQuantity = useSelector(
     (state: RootState) => state.cart.totalQuantity
   );
+
   const dispatch = useDispatch();
   const totalPrice = useSelector((state: RootState) => state.cart.totalPrice);
   const handleClearCart = () => {
@@ -40,44 +44,28 @@ export const CartPage = () => {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
-
-  const handleCheckOut = async () => {
-    setLoading(true);
+  const handleToken = async () => {
     try {
-      // Call the createStripeCheckout function
-      const createCheckout = httpsCallable(functions, "createStripeCheckout");
-
-      const result = await createCheckout({
-        // Optional data, if needed (e.g., cart items or user details)
-        items: [
-          {
-            product_id: "camera123",
-            quantity: 1
-          }
-        ]
-      });
-
-      // Get the Stripe session ID from the response
-      const sessionId = (result.data as { id: string }).id;
-      console.log("Checkout session ID:", sessionId);
-
-      // Redirect the user to the Stripe checkout page
-      const stripe = window.Stripe(
-        "pk_test_51QgifwGHD8Z3pchEINTT3eDRIAsHyy4HuYoK5ehEjFo0XVFj9HKe5zCKafAf86s2sO8yZ11P1xrztlVSDZ9tfn2900WNS0RbJ9"
-      );
-      const { error } = await stripe.redirectToCheckout({ sessionId });
-
-      if (error) {
-        console.error("Error redirecting to checkout:", error);
-        setError(error.message);
+      const docRef = collection(db, "orders");
+      if (user) {
+        await addDoc(docRef, {
+          userId: user.id,
+          orders: cartItems,
+          createdAt: serverTimestamp()
+        });
       }
-    } catch (err) {
-      console.error("Error creating checkout session:", err);
-      setError("An error occurred while creating the checkout session.");
-    } finally {
-      setLoading(false);
+    } catch (error: unknown) {
+      if (error instanceof Error) {
+        console.error(error.message);
+      }
     }
+    dispatch(order());
+    navigate("/");
+    console.log("=================");
+    console.log("Payment success");
+    console.log("=================");
   };
+
   return (
     <main className="">
       {totalQuantity === 0 ? (
@@ -107,7 +95,10 @@ export const CartPage = () => {
                   ))}
                 </TableBody>
               </Table>
-              <Button className="mt-4" onClick={handleClearCart}>
+              <Button
+                className="mt-4 dark:bg-slate-700 dark:text-white dark:hover:bg-slate-600"
+                onClick={handleClearCart}
+              >
                 Clear Cart
               </Button>
             </div>
@@ -125,9 +116,7 @@ export const CartPage = () => {
                 <p>Total</p>
                 <p>{formatPrice(totalPrice)}</p>
               </article>
-              <Button className="w-full" onClick={handleCheckOut}>
-                {loading ? "Loading..." : "Checkout"}
-              </Button>
+              <Checkout totalPrice={totalPrice} handleToken={handleToken} />
             </div>
           </div>
         </section>
