@@ -1,14 +1,10 @@
 import { UseProducts } from "@/Context/Products/UseProducts";
-import { motion } from "framer-motion";
-import { Card, CardContent, CardFooter } from "@/components/ui/card";
-import { Swiper, SwiperSlide } from "swiper/react";
+
 import "swiper/css";
 import "swiper/css/navigation";
-import { Navigation } from "swiper/modules";
-import { Heart, MoveLeft, MoveRight, Star } from "lucide-react";
+import { MoveLeft, MoveRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import { ProductType } from "@/Context/Products/ProductProvider";
 import BreadCrumbs from "./BreadCrumbs";
 import { useDispatch, useSelector } from "react-redux";

@@ -16,6 +16,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
 import { BlogItemType } from "@/data/Blogs";
+import LazyLoad from "react-lazyload";
 
 interface BlogType {
   blog: BlogItemType;
@@ -34,13 +35,15 @@ export const BlogCard = ({ blog }: BlogType) => {
     >
       <Card className="w-full overflow-hidden h-full justify-between max-w-[300px] flex flex-col">
         <CardHeader className="p-0">
-          <figure className="h-[12rem] max-sm:h-[7rem]">
-            <img
-              src={blog.image}
-              alt={blog.title}
-              className="w-full h-full object-cover"
-            />
-          </figure>
+          <LazyLoad placeholder="GTech">
+            <figure className="h-[12rem] max-sm:h-[7rem]">
+              <img
+                src={blog.image}
+                alt={blog.title}
+                className="w-full h-full object-cover"
+              />
+            </figure>
+          </LazyLoad>
         </CardHeader>
 
         <CardContent className="max-sm:p-2">

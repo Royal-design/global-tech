@@ -26,6 +26,7 @@ import { useNavigate } from "react-router-dom";
 import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { db } from "@/Config/firebase";
 import { UseAuthContext } from "@/Context/Auth/UseAuthContext";
+import { CartList } from "@/components/CartList";
 
 export const CartPage = () => {
   const { user } = UseAuthContext();
@@ -77,8 +78,13 @@ export const CartPage = () => {
             <h2 className="font-bold">Shopping Cart</h2>
           </div>
 
-          <div className="flex max-sm:flex-col gap-[4rem]  p-8 max-sm:p-4">
-            <div className="w-full">
+          <div className="flex max-sm:flex-col gap-[4rem]">
+            <div className="hidden max-sm:flex max-sm:flex-col max-sm:gap-2 px-4">
+              {cartItems.map((item) => (
+                <CartList item={item} />
+              ))}
+            </div>
+            <div className="w-full max-sm:hidden">
               <Table className="w-full">
                 <TableHeader>
                   <TableRow>
@@ -103,7 +109,7 @@ export const CartPage = () => {
               </Button>
             </div>
 
-            <div className="flex w-[20rem] max-sm:w-full  flex-col gap-5">
+            <div className="flex w-[20rem] max-sm:w-full max-sm:px-4  flex-col gap-5">
               <article className="flex justify-between">
                 <p>Subtotal</p>
                 <p>{formatPrice(totalPrice)}</p>

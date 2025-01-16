@@ -13,6 +13,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { ProductType } from "@/Context/Products/ProductProvider";
 import React, { memo } from "react";
+import LazyLoad from "react-lazyload";
 
 interface ProductCardProps {
   product: ProductType;
@@ -39,13 +40,15 @@ export const RelatedProductCard: React.FC<ProductCardProps> = ({
           }}
         >
           <CardContent className="relative recommend-card p-0">
-            <figure className="flex justify-center p-2 bg-background-card h-[12rem] max-sm:h-[8rem]">
-              <img
-                src={product.image}
-                alt={product.name}
-                className="h-full object-cover"
-              />
-            </figure>
+            <LazyLoad placeholder="G.Tech" className="h-full">
+              <figure className="flex justify-center p-2 bg-background-card h-[12rem] max-sm:h-[8rem]">
+                <img
+                  src={product.image}
+                  alt={product.name}
+                  className="h-full object-cover"
+                />
+              </figure>
+            </LazyLoad>
             <div className="swiper-container bg-background-card w-full h-full absolute top-[-20rem] p-2 duration-200 recommend-card-content">
               <Swiper
                 loop

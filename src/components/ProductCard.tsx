@@ -1,7 +1,6 @@
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { motion } from "framer-motion";
-import { LazyLoadImage } from "react-lazy-load-image-component";
 import LazyLoad from "react-lazyload";
 
 // Import Swiper styles
@@ -40,7 +39,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
         <Link to={`/product/${product.id}`}>
           <CardContent className="relative recommend-card p-0">
             <figure className="flex justify-center p-2 bg-background-card h-[12rem] max-sm:h-[8rem]">
-              <LazyLoad placeholder="string">
+              <LazyLoad placeholder="G.Tech" className="h-full">
                 <img
                   src={product.image}
                   alt={product.name}
@@ -57,11 +56,13 @@ export const ProductCard: React.FC<ProductCardProps> = ({
               >
                 {product.images.map((image, i) => (
                   <SwiperSlide key={i}>
-                    <img
-                      src={image}
-                      alt={product.name}
-                      className="h-full w-full object-contain"
-                    />
+                    <LazyLoad placeholder="G.Tech" className="h-full">
+                      <img
+                        src={image}
+                        alt={product.name}
+                        className="h-full w-full object-contain"
+                      />
+                    </LazyLoad>
                   </SwiperSlide>
                 ))}
               </Swiper>

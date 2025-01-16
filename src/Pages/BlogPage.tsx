@@ -1,18 +1,10 @@
 import { BlogCard } from "@/components/BlogCard";
 import BreadCrumbs from "@/components/BreadCrumbs";
 import { Footer } from "@/components/Footer";
-import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader
-} from "@/components/ui/card";
+
 // import hero from "../assets/blog/hero.jpg";
 import { blogData } from "@/data/Blogs";
-import { Separator } from "@radix-ui/react-separator";
 import { useEffect } from "react";
-import { Link } from "react-router-dom";
 export const BlogPage = () => {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });

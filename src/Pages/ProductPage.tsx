@@ -101,10 +101,10 @@ export const ProductPage = () => {
             navigation={true}
             thumbs={{ swiper: thumbsSwiper }}
             modules={[FreeMode, Navigation, Thumbs]}
-            className="mySwiper2  w-full h-[20rem]"
+            className="mySwiper2  w-full flex items-center justify-center h-full dark:bg-slate-900 overflow-hidden bg-gray-300"
           >
             <SwiperSlide>
-              <figure className="w-full flex items-center justify-center h-full dark:bg-slate-900 overflow-hidden bg-gray-300">
+              <figure className="w-full flex items-center  justify-center h-full dark:bg-slate-900 overflow-hidden bg-gray-300">
                 <img
                   src={product?.image}
                   className="h-full w-full object-cover"

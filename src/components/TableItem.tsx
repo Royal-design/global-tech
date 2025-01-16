@@ -42,24 +42,25 @@ export const TableItem = ({ item }: ItemType) => {
       <TableCell className="font-medium  w-[20rem]">
         <figure className="flex items-center  gap-3">
           <img src={item.image} alt="image" className="w-[3rem] h-[3rem] " />
-          <p>{item.name}</p>
+          <p className="max-sm:text-xs w-full">{item.name}</p>
         </figure>
       </TableCell>
-      <TableCell>{item.newPrice}</TableCell>
+      <TableCell className="max-sm:text-xs">{item.newPrice}</TableCell>
       <TableCell>
-        <div className="w-[5rem] dark:bg-transparent flex h-[3rem] justify-around items-center bg-white border">
+        <div className="w-[5rem]  max-sm:h-[2rem] dark:bg-transparent flex h-[3rem] justify-around items-center bg-white border">
           <Button
             onClick={(e) => handleDecrement(e, item.id)}
             variant="ghost"
-            className="cursor-pointer dark:hover:bg-transparent hover:bg-transparent"
+            className="cursor-pointer  dark:hover:bg-transparent hover:bg-transparent"
           >
             -
           </Button>
+
           <p>{updateQuantity}</p>
           <Button
             onClick={(e) => handleIncrement(e, item.id)}
             variant="ghost"
-            className="cursor-pointer dark:hover:bg-transparent hover:bg-transparent"
+            className="cursor-pointer  dark:hover:bg-transparent hover:bg-transparent"
           >
             +
           </Button>

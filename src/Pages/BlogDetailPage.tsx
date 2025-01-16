@@ -46,11 +46,11 @@ export const BlogDetailPage = () => {
   const navigate = useNavigate();
   const blog = blogData.find((blog) => blog.id === Number(blogid));
   const blogCategory = blogData.map((blog) => blog.category);
-  // useEffect(() => {
-  //   window.scrollTo({
-  //     top: 0
-  //   });
-  // }, []);
+  useEffect(() => {
+    window.scrollTo({
+      top: 0
+    });
+  }, []);
 
   const commentSchema = z.object({
     firstname: z
