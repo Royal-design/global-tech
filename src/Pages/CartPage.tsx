@@ -78,7 +78,7 @@ export const CartPage = () => {
             <h2 className="font-bold">Shopping Cart</h2>
           </div>
 
-          <div className="flex max-sm:flex-col gap-[4rem]">
+          <div className="flex max-sm:flex-col gap-[2rem] max-sm:gap-[4rem] ">
             <div className="hidden max-sm:flex max-sm:flex-col max-sm:gap-2 px-4">
               {cartItems.map((item) => (
                 <CartList item={item} key={item.id} />
@@ -90,7 +90,7 @@ export const CartPage = () => {
                 Clear Cart
               </Button>
             </div>
-            <div className="w-full max-sm:hidden">
+            <div className="w-full max-sm:hidden px-8">
               <Table className="w-full">
                 <TableHeader>
                   <TableRow>
@@ -115,7 +115,7 @@ export const CartPage = () => {
               </Button>
             </div>
 
-            <div className="flex w-[20rem] max-sm:w-full max-sm:px-4  flex-col gap-5">
+            <div className="flex w-[20rem] max-sm:w-full max-sm:px-4 px-8 flex-col gap-5">
               <article className="flex justify-between">
                 <p>Subtotal</p>
                 <p>{formatPrice(totalPrice)}</p>

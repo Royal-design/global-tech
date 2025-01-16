@@ -6,6 +6,7 @@
 
 @layer base {
   :root {
+    --background-toast: #48cf17d4;
     --background-card: #cfd0d3;
     --background: 0 0% 100%;
     --navbar-background: black;
@@ -37,6 +38,7 @@
   }
 
   .dark {
+    --background-toast: #48cf17d4;
     --background-card: #13162e;
     --background: 222.2 84% 4.9%;
     --navbar-background: #3b3b42;

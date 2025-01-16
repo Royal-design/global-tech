@@ -14,7 +14,11 @@ export const RootLayout: FC = () => {
   return (
     <div className="w-full">
       {/* <ToastContainer position="bottom-center" autoClose={5000} theme="dark" /> */}
-      <Toaster />
+      <Toaster
+        toastOptions={{
+          style: { background: " var(--background-toast)", border: "none" }
+        }}
+      />
       {!loginPage && !registerPage && <Navbar />}
       <main>
         <Outlet />
