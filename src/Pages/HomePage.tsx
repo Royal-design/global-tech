@@ -1,6 +1,7 @@
 import { Banner } from "@/components/Banner";
 import { Footer } from "@/components/Footer";
 import { NewDeals } from "@/components/NewDeals";
+
 import { BestSellingProduct } from "@/Sessions/BestSellingProduct";
 import { BlogSession } from "@/Sessions/BlogSession";
 import { Brands } from "@/Sessions/Brands";

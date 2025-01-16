@@ -1,7 +1,7 @@
 import { createContext, ReactElement, useEffect, useState } from "react";
 import { auth, db } from "@/Config/firebase";
 import { collection, doc, getDoc, getDocs } from "firebase/firestore";
-import { toast } from "react-toastify";
+import { toast } from "sonner";
 
 export type UserType = {
   firstname: string;

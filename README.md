@@ -1,5 +1,9 @@
 # Global Tech Ecommerce Website
 
+### Web Link
+
+[click the link to access the site](https://global-tech-five.vercel.app/)
+
 ## Overview
 
 Global Tech Ecommerce Website is a fully functional online store built with modern technologies such as React, Redux Toolkit, Context API, Firebase, Stripe, and ShadCN for the UI. The application allows users to browse products, manage their shopping cart, make payments, and authenticate using Firebase.

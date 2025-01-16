@@ -2,7 +2,7 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import { Link, useNavigate } from "react-router-dom";
 import { auth, db } from "@/Config/firebase";
 import { doc, setDoc } from "firebase/firestore";
-import { toast } from "react-toastify";
+import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
@@ -24,8 +24,13 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import logo from "../../assets/gtech logo1.png";
+import { useDispatch } from "react-redux";
+import { AppDispatch } from "@/redux/store";
+import { registerUser } from "@/redux/slice/authSlice";
 
 export const Register = () => {
+  const dispatch: AppDispatch = useDispatch();
+
   const userSchema = z.object({
     firstname: z
       .string()
@@ -56,6 +61,7 @@ export const Register = () => {
       userData.email,
       userData.password
     );
+    dispatch(registerUser(userData.email, userData.password));
     const user = auth.currentUser;
     if (user) {
       const docRef = doc(db, "users", user.uid);
@@ -80,10 +86,13 @@ export const Register = () => {
   };
 
   return (
-    <div className="bg-background flex justify-center items-center h-screen">
+    <div className="bg-background max-sm:px-4 flex justify-center w-full items-center h-screen">
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(handleSubmit)}>
-          <Card className="bg-background overflow-hidden text-primary w-[25rem]">
+        <form
+          onSubmit={form.handleSubmit(handleSubmit)}
+          className="max-sm:w-full"
+        >
+          <Card className="bg-background overflow-hidden max-sm:w-full text-primary w-[25rem]">
             <CardHeader className="flex items-center justify-center">
               <img src={logo} className="w-[3rem]" />
               <CardTitle className="text-center text-2xl">

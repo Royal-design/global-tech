@@ -3,7 +3,7 @@ import googleImage from "../../assets/google.webp";
 import { auth, db, googleProvider } from "@/Config/firebase";
 import { FormEvent } from "react";
 import { signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
-import { toast } from "react-toastify";
+import { toast } from "sonner";
 import { useNavigate } from "react-router-dom";
 import { doc, setDoc } from "firebase/firestore";
 import { z } from "zod";
@@ -28,8 +28,13 @@ import {
   CardHeader,
   CardTitle
 } from "@/components/ui/card";
+import { useDispatch } from "react-redux";
+import { loginUser, loginWithGoogle } from "@/redux/slice/authSlice";
+import { AppDispatch } from "@/redux/store";
 
 export const Login = () => {
+  const dispatch: AppDispatch = useDispatch();
+
   const userSchema = z.object({
     email: z
       .string({ invalid_type_error: "Must be a valid email" })
@@ -48,6 +53,7 @@ export const Login = () => {
   const navigate = useNavigate();
 
   const handleSubmit = async (userData: z.infer<typeof userSchema>) => {
+    dispatch(loginUser(userData.email, userData.password));
     try {
       await signInWithEmailAndPassword(auth, userData.email, userData.password);
       console.log(userData);
@@ -63,6 +69,7 @@ export const Login = () => {
 
   const handleGoogleLogin = async (e: FormEvent) => {
     e.preventDefault();
+    dispatch(loginWithGoogle());
     try {
       await signInWithPopup(auth, googleProvider);
       const user = auth.currentUser;
@@ -85,15 +92,18 @@ export const Login = () => {
     }
   };
   return (
-    <div className=" bg-background text-primary flex justify-center items-center h-screen">
+    <div className=" bg-background max-sm:p-4 max-sm:w-full text-primary justify-center flex  items-center h-screen">
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(handleSubmit)}>
-          <Card className=" bg-background text-primary w-[25rem] ">
-            <CardHeader className="flex items-center justify-center">
+        <form
+          onSubmit={form.handleSubmit(handleSubmit)}
+          className="max-sm:w-full "
+        >
+          <Card className="p-0 bg-background text-primary w-[25rem]  max-sm:w-full ">
+            <CardHeader className=" p-0 flex items-center justify-center">
               <img src={logo} className="w-[3rem]" />
               <CardTitle className="text-2xl text-center">Login </CardTitle>
             </CardHeader>
-            <CardContent className="flex flex-col gap-1">
+            <CardContent className="flex flex-col gap-2">
               <FormField
                 control={form.control}
                 name="email"
@@ -132,7 +142,7 @@ export const Login = () => {
                 )}
               />
             </CardContent>
-            <CardFooter className="flex flex-col items-center">
+            <CardFooter className="flex flex-col gap-3 items-center">
               <Button
                 type="submit"
                 className="w-full text-white dark:text-primary bg-slate-600 hover:bg-slate-700 duration-200 hover:outline-green-500 hover:outline-1 outline outline-1"

@@ -13,6 +13,7 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { removeFromCart } from "@/redux/slice/cartSlice";
 import { Link } from "react-router-dom";
+import { UseAuthContext } from "@/Context/Auth/UseAuthContext";
 export const formatPrice = (price: number): string => {
   return new Intl.NumberFormat("en-NG", {
     style: "currency",
@@ -25,6 +26,7 @@ export const formatPrice = (price: number): string => {
 const CartSheet = () => {
   const [open, setOpen] = useState<boolean>(false);
   const cartItems = useSelector((state: RootState) => state.cart.items);
+  const { user } = UseAuthContext();
 
   const dispatch = useDispatch();
   const totalPrice = useSelector((state: RootState) => state.cart.totalPrice);
@@ -97,7 +99,7 @@ const CartSheet = () => {
               <p>{formatPrice(totalPrice)}</p>
             </div>
             <Link
-              to="/shopping-cart"
+              to={user ? "/shopping-cart" : "/login"}
               onClick={() => {
                 setOpen(false);
               }}

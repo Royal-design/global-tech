@@ -78,7 +78,14 @@ const router = createBrowserRouter([
         path: "/product",
         element: <ShopPage />
       },
-
+      {
+        path: "/profile",
+        element: <ProfilePage />
+      },
+      {
+        path: "/shopping-cart",
+        element: <CartPage />
+      },
       {
         path: "/product",
         children: [
@@ -126,14 +133,6 @@ const router = createBrowserRouter([
       {
         element: <PrivateLayout />,
         children: [
-          {
-            path: "/profile",
-            element: <ProfilePage />
-          },
-          {
-            path: "/shopping-cart",
-            element: <CartPage />
-          },
           {
             path: "/editprofile",
             element: <EditProfile />

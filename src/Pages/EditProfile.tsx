@@ -1,6 +1,6 @@
 import { auth, db, storage } from "@/Config/firebase";
 import { ChangeEvent, useState } from "react";
-import { toast } from "react-toastify";
+import { toast } from "sonner";
 import { useNavigate } from "react-router-dom";
 import { doc, getDoc, serverTimestamp, updateDoc } from "firebase/firestore";
 import { z } from "zod";

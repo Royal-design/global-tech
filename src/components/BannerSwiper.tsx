@@ -58,7 +58,7 @@ export const BannerSwiper = () => {
     }
   ];
   return (
-    <div className="swiper-cont max-sm:h-[20rem]">
+    <div className="swiper-cont">
       <Swiper
         autoplay={{ delay: 4000 }}
         onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
@@ -82,7 +82,7 @@ export const BannerSwiper = () => {
                 initial="initial"
                 exit="exit"
                 variants={banner}
-                className="relative w-full h-full max-sm:h-[20rem]"
+                className="relative w-full h-full "
               >
                 <img
                   src={data.img}

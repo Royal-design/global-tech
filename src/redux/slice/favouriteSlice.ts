@@ -1,6 +1,6 @@
 import { ProductType } from "@/Context/Products/ProductProvider";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { toast } from "react-toastify";
+import { toast } from "sonner";
 
 export interface FavouriteState {
   items: ProductType[];

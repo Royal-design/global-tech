@@ -1,8 +1,9 @@
 import Navbar from "@/components/Navbar";
 import { FC } from "react";
 import { Outlet, useLocation } from "react-router-dom";
-import { ToastContainer } from "react-toastify";
+// import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { Toaster } from "@/components/ui/sonner";
 
 export const RootLayout: FC = () => {
   const location = useLocation();
@@ -12,8 +13,8 @@ export const RootLayout: FC = () => {
 
   return (
     <div className="w-full">
-      <ToastContainer position="top-center" autoClose={5000} theme="dark" />
-
+      {/* <ToastContainer position="bottom-center" autoClose={5000} theme="dark" /> */}
+      <Toaster />
       {!loginPage && !registerPage && <Navbar />}
       <main>
         <Outlet />

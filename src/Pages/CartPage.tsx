@@ -81,8 +81,14 @@ export const CartPage = () => {
           <div className="flex max-sm:flex-col gap-[4rem]">
             <div className="hidden max-sm:flex max-sm:flex-col max-sm:gap-2 px-4">
               {cartItems.map((item) => (
-                <CartList item={item} />
+                <CartList item={item} key={item.id} />
               ))}
+              <Button
+                className="mt-4 dark:bg-slate-700 w-[6rem] dark:text-white dark:hover:bg-slate-600"
+                onClick={handleClearCart}
+              >
+                Clear Cart
+              </Button>
             </div>
             <div className="w-full max-sm:hidden">
               <Table className="w-full">

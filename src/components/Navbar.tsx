@@ -1,4 +1,3 @@
-import { UserRound } from "lucide-react";
 import { ReactElement, useEffect, useState } from "react";
 import Headroom from "react-headroom";
 import { NavLink } from "react-router-dom";
@@ -6,24 +5,22 @@ import logo from "../assets/gtech logo1.png";
 import Search from "./Search";
 import NavbarSheet from "./NavbarSheet";
 import Switch from "./Switch";
-import { UseAuthContext } from "@/Context/Auth/UseAuthContext";
 import { useSelector } from "react-redux";
 import { RootState } from "@/redux/store";
 import CartSheet from "./CartSheet";
 import WishListSheet from "./WishListSheet";
+import { ProfileMenu } from "./ProfileMenu";
 export type ChildrenType = {
   children?: ReactElement;
 };
 
 const Navbar = () => {
-  // const { totalItem } = UseCartContext();
   const totalQuantity = useSelector(
     (state: RootState) => state.cart.totalQuantity
   );
   const totalFavourite = useSelector(
     (state: RootState) => state.favourite.totalFavourite
   );
-  const { user } = UseAuthContext();
   const [isPinned, setIsPinned] = useState<boolean>(false);
   const [scrolled, setScrolled] = useState<boolean>(false);
 
@@ -69,9 +66,7 @@ const Navbar = () => {
               <Switch />
             </div>
             <div>
-              <NavLink to={user ? "/profile" : "/login"}>
-                <UserRound size={20} strokeWidth={1.5} />
-              </NavLink>
+              <ProfileMenu />
             </div>
             <div className="relative font-rajdhani">
               {<CartSheet />}
