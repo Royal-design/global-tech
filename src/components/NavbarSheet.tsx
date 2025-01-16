@@ -1,4 +1,3 @@
-import { Button } from "@/components/ui/button";
 import {
   Sheet,
   SheetContent,
@@ -17,13 +16,14 @@ const NavbarSheet = () => {
     <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger asChild>
         {!open ? (
-          <Button variant="ghost" onClick={() => setOpen(!open)}>
-            <Menu size={20} strokeWidth={1.5} />
-          </Button>
+          <Menu
+            onClick={() => setOpen(!open)}
+            size={25}
+            strokeWidth={1.5}
+            className=""
+          />
         ) : (
-          <Button variant="ghost" onClick={() => setOpen(!open)}>
-            <X size={20} strokeWidth={1.5} onClick={() => setOpen(!open)} />
-          </Button>
+          <X size={20} strokeWidth={1.5} onClick={() => setOpen(!open)} />
         )}
       </SheetTrigger>
       <SheetContent side="left">

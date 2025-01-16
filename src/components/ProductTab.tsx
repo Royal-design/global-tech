@@ -31,15 +31,24 @@ export const ProductTab = ({ product }: PropsType) => {
       defaultValue="description"
       className="w-full max-sm:p-0 px-[8rem] max-md:p-0   my-8 font-rajdhani"
     >
-      <TabsList className="grid w-full grid-cols-3">
-        <TabsTrigger value="description">Description</TabsTrigger>
-        <TabsTrigger value="additionalinfo">Additional Information</TabsTrigger>
-        <TabsTrigger value="review">{`Reviews [${product.reviews.length}]`}</TabsTrigger>
+      <TabsList className=" max-sm:flex max-sm:justify-between">
+        <TabsTrigger value="description" className="max-sm:text-sm">
+          Description
+        </TabsTrigger>
+        <TabsTrigger value="additionalinfo" className="max-sm:text-sm">
+          Additional Information
+        </TabsTrigger>
+        <TabsTrigger
+          value="review"
+          className="max-sm:text-sm"
+        >{`Reviews [${product.reviews.length}]`}</TabsTrigger>
       </TabsList>
       <TabsContent value="description">
         <Card>
-          <CardHeader>
-            <CardTitle className="text-lg">{product.name}</CardTitle>
+          <CardHeader className="py-2">
+            <CardTitle className="text-lg max-sm:text-base">
+              {product.name}
+            </CardTitle>
             <CardDescription></CardDescription>
           </CardHeader>
           <CardContent className="">
@@ -52,7 +61,9 @@ export const ProductTab = ({ product }: PropsType) => {
       <TabsContent value="additionalinfo">
         <Card>
           <CardHeader className="py-2">
-            <CardTitle className="text-lg">Additional Information</CardTitle>
+            <CardTitle className="text-lg max-sm:text-base">
+              Additional Information
+            </CardTitle>
             <CardDescription></CardDescription>
           </CardHeader>
           <CardContent className="">
@@ -65,8 +76,8 @@ export const ProductTab = ({ product }: PropsType) => {
                         <strong>{key}:</strong>{" "}
                         <ul className="flex gap-2">
                           {value.map((item, index) => (
-                            <div className="flex gap-2">
-                              <li key={index}>{item} </li>
+                            <div key={index} className="flex gap-2">
+                              <li>{item} </li>
                               {index < value.length - 1 && (
                                 <Separator
                                   orientation="vertical"
@@ -92,7 +103,7 @@ export const ProductTab = ({ product }: PropsType) => {
         </Card>
       </TabsContent>
       <TabsContent value="review">
-        <p className="text-lg mb-2">Reviews</p>
+        <p className="text-lg mb-2 max-sm:text-base">Reviews</p>
         {product.reviews.map((review, index) => (
           <Card key={index} className="border p-2  mb-2  shadow-sm">
             <CardHeader className="py-0">

@@ -1,31 +1,32 @@
-import iphone15_00 from "../assets/products/iphone-15-00.png";
-import iphone15_01 from "../assets/products/iphone-15-01.png";
-import iphone15_02 from "../assets/products/iphone-15-02.png";
-import iphone16_00 from "../assets/products/iphone-16-00.png";
-import iphone16_01 from "../assets/products/iphone-16-01.png";
-import iphone16_02 from "../assets/products/iphone-16-02.png";
-import blade15_00 from "../assets/products/balde-15-00.png";
+import iphone15_00 from "../assets/products/iphone-15-00.webp";
+import iphone15_01 from "../assets/products/iphone-15-01.webp";
+import iphone15_02 from "../assets/products/iphone-15-02.webp";
+import iphone16_00 from "../assets/products/iphone-16-00.webp";
+import iphone16_01 from "../assets/products/iphone-16-01.webp";
+import iphone16_02 from "../assets/products/iphone-16-02.webp";
+import blade15_00 from "../assets/products/balde-15-00.webp";
 import blade15_01 from "../assets/products/balde-15-01.webp";
-import blade15_02 from "../assets/products/balde-15-02.png";
-import blade18_00 from "../assets/products/balde-18-00.png";
-import blade18_01 from "../assets/products/balde-18-01.png";
-import blade18_02 from "../assets/products/balde-18-01.png";
-import xps_00 from "../assets/products/xps-13-9340-00.png";
-import xps_01 from "../assets/products/xps-13-9340-01.png";
-import xps_02 from "../assets/products/xps-13-9340-02.png";
+import blade15_02 from "../assets/products/balde-15-02.webp";
+import blade18_00 from "../assets/products/balde-18-00.webp";
+import blade18_01 from "../assets/products/balde-18-01.webp";
+import blade18_02 from "../assets/products/balde-18-02.webp";
+import xps_00 from "../assets/products/xps-13-9315-00.webp";
+import xps_01 from "../assets/products/xps-13-9315-01.webp";
+import xps_02 from "../assets/products/xps-13-9315-02.webp";
 import hpelitebook1030_00 from "../assets/products/elitebook-1030-00.webp";
 import hpelitebook1030_01 from "../assets/products/elitebook-1030-01.webp";
-import hpelitebook1030_02 from "../assets/products/elitebook-1030-02.png";
-import hpelitebook1040_00 from "../assets/products/elitebook-1040-00.png";
-import hpelitebook1040_01 from "../assets/products/elitebook-1040-01.png";
-import hpelitebook1040_02 from "../assets/products/elitebook-1040-02.png";
+import hpelitebook1030_02 from "../assets/products/elitebook-1030-02.webp";
+import hpelitebook1040_00 from "../assets/products/elitebook-1040-00.webp";
+import hpelitebook1040_01 from "../assets/products/elitebook-1040-01.webp";
+import hpelitebook1040_02 from "../assets/products/elitebook-1040-02.webp";
 import vr_00 from "../assets/products/vr-00.webp";
-import vr_01 from "../assets/products/vr-01.png";
-import vr_02 from "../assets/products/vr-02.png";
+import vr_01 from "../assets/products/vr-01.webp";
+import vr_02 from "../assets/products/vr-02.webp";
 
 export const products = [
   {
     id: "sku0009",
+    rating: 4,
     name: "iPhone 15 256GB",
     image: iphone15_00,
     images: [iphone15_01, iphone15_02],
@@ -64,6 +65,7 @@ export const products = [
   },
   {
     id: "sku0010",
+    rating: 5,
     name: "iPhone 16 256GB",
     image: iphone16_00,
     images: [iphone16_01, iphone16_02],
@@ -100,6 +102,7 @@ export const products = [
   },
   {
     id: "sku0011",
+    rating: 4,
     name: "Razer Blade 15 - QHD 240Hz",
     image: blade15_00,
     images: [blade15_01, blade15_02],
@@ -138,6 +141,7 @@ export const products = [
   },
   {
     id: "sku0012",
+    rating: 4,
     name: "Razer Blade 18 - 4K 200Hz",
     image: blade18_00,
     images: [blade18_01, blade18_02],
@@ -177,6 +181,7 @@ export const products = [
 
   {
     id: "sku0013",
+    rating: 4,
     name: "Dell XPS 13 9340",
     image: xps_00,
     images: [xps_01, xps_02],
@@ -213,7 +218,8 @@ export const products = [
   },
   {
     id: "sku0014",
-    name: "HP Elitebook X360 1030 G3",
+    rating: 3,
+    name: "HP Elitebook X360 1030",
     image: hpelitebook1030_00,
     images: [hpelitebook1030_01, hpelitebook1030_02],
     oldPrice: "1,200,000",
@@ -250,6 +256,7 @@ export const products = [
   },
   {
     id: "sku0015",
+    rating: 5,
     name: "HP EliteBook 1040 G10",
     image: hpelitebook1040_00,
     images: [hpelitebook1040_01, hpelitebook1040_02],
@@ -287,6 +294,7 @@ export const products = [
   },
   {
     id: "sku0016",
+    rating: 4,
     name: "Meta Quest 3 512GB",
     image: vr_00,
     images: [vr_01, vr_02],

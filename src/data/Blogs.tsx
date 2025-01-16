@@ -1,3 +1,26 @@
+interface Comment {
+  author: string;
+  date: string;
+  image: string;
+  content: string;
+}
+
+export interface BlogItemType {
+  id: number;
+  title: string;
+  shortDescription: string;
+  longDescription: string;
+  bodyContent: string;
+  author: string;
+  authorImage: string;
+  date: string;
+  coverImage: string;
+  image: string;
+  category: string;
+  tags: string[];
+  comments: Comment[];
+}
+
 export const blogData = [
   {
     id: 1,

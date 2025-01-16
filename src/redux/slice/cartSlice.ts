@@ -15,6 +15,7 @@ export type AdditionalInfo = Record<
 
 export interface CartItem {
   id: string;
+  rating?: number;
   name: string;
   newPrice: string;
   oldPrice: string;
@@ -35,13 +36,27 @@ interface CartState {
   totalQuantity: number;
   totalPrice: number;
 }
-const initialState: CartState = JSON.parse(
-  localStorage.getItem("cart") || "{}"
-) ?? {
-  items: [],
-  totalQuantity: 0,
-  totalPrice: 0
-};
+const initialState: CartState = (() => {
+  try {
+    const storedData = JSON.parse(localStorage.getItem("cart") || "{}");
+    return {
+      items: Array.isArray(storedData.items) ? storedData.items : [],
+      totalQuantity:
+        typeof storedData.totalQuantity === "number"
+          ? storedData.totalQuantity
+          : 0,
+      totalPrice:
+        typeof storedData.totalPrice === "number" ? storedData.totalPrice : 0
+    };
+  } catch (error) {
+    console.error("Error parsing localStorage data:", error);
+    return {
+      items: [],
+      totalQuantity: 0,
+      totalPrice: 0
+    };
+  }
+})();
 
 const cleanPrice = (price: string): number => {
   return parseFloat(price.replace(/,/g, ""));
@@ -62,6 +77,7 @@ export const cartSlice = createSlice({
         brand,
         description,
         reviews,
+        rating,
         tags,
         additionalInfo,
         category,
@@ -76,6 +92,7 @@ export const cartSlice = createSlice({
       } else {
         state.items.push({
           id,
+          rating,
           name,
           newPrice,
           oldPrice,

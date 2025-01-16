@@ -7,7 +7,7 @@ import { ShopProduct } from "@/components/ShopProduct";
 
 export const ShopPage = () => {
   return (
-    <div className="px-8">
+    <div className="px-8 max-sm:px-4">
       <div className="grid grid-cols-[repeat(4,1fr)] max-sm:flex max-sm:flex-col mt-8 w-full">
         <div className="hidden max-sm:mb-3  max-sm:block max-md:hidden">
           <div className="flex gap-4 items-center">

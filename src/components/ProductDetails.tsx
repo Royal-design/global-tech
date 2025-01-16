@@ -1,17 +1,13 @@
 import { ProductType } from "@/Context/Products/ProductProvider";
 import BreadCrumbs from "./BreadCrumbs";
-import { Heart, Share2, Star } from "lucide-react";
+import { Heart, Share2 } from "lucide-react";
 import { Button } from "./ui/button";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "@/redux/slice/cartSlice";
 import { decrement, increment } from "@/redux/slice/countSlice";
 import { RootState } from "@/redux/store";
 import { motion } from "framer-motion";
-import {
-  addFavorite,
-  FavouriteItem,
-  removeFavorite
-} from "@/redux/slice/favouriteSlice";
+import { addFavorite, removeFavorite } from "@/redux/slice/favouriteSlice";
 
 interface ProductDetailsProps {
   product: ProductType;
@@ -38,8 +34,8 @@ export const ProductDetails = ({ product }: ProductDetailsProps) => {
     dispatch(addToCart({ ...newProduct, qty: newProduct.qty }));
   };
 
-  const toggleFavorite = (product: FavouriteItem) => {
-    if (isFavourite.find((item: FavouriteItem) => item.id === product.id)) {
+  const toggleFavorite = (product: ProductType) => {
+    if (isFavourite.find((item: ProductType) => item.id === product.id)) {
       dispatch(removeFavorite(product.id));
     } else {
       dispatch(addFavorite(product));
@@ -47,22 +43,24 @@ export const ProductDetails = ({ product }: ProductDetailsProps) => {
   };
 
   return (
-    <div className="p-4">
+    <div className="p-4 max-sm:p-0">
       <div className="max-sm:hidden">
         <BreadCrumbs />
       </div>
       <div className="font-titanium mt-4">
-        <p className="text-2xl font-bold">{product.name}</p>
+        <p className="text-2xl max-sm:text-lg font-bold">{product.name}</p>
         <div className="items-center flex my-2 gap-4">
-          <div className="flex gap-1">
-            {[...Array(5).keys()].map((_, i) => (
-              <Star key={i} fill="#fbd06f" stroke="1px" size={12} />
-            ))}
-          </div>
-          <p className="text-sm">8K+ reviews</p>
+          {product.rating && (
+            <p className="text-yellow-500">
+              {"★".repeat(product.rating)} {"☆".repeat(5 - product.rating)}
+            </p>
+          )}
+          <p className="text-slate-400 text-sm">
+            - {product.reviews.length} Reviews
+          </p>
         </div>
-        <div className="flex gap-4 mt-6">
-          <p className="text-lg line-through text-gray-500 font-semibold">
+        <div className="flex items-center gap-4 mt-6">
+          <p className="text-lg max-sm:text-base line-through text-gray-500 font-semibold">
             ₦{product.oldPrice}
           </p>
           <p className="text-lg font-semibold">₦{product.newPrice}</p>
@@ -82,7 +80,7 @@ export const ProductDetails = ({ product }: ProductDetailsProps) => {
               <Button
                 variant="ghost"
                 onClick={handleIncrement}
-                className="cursor-pointer hover:bg-white dark:bg-transparent"
+                className="cursor-pointer  hover:bg-white dark:bg-transparent"
               >
                 +
               </Button>
@@ -97,7 +95,7 @@ export const ProductDetails = ({ product }: ProductDetailsProps) => {
             <motion.button
               animate={{
                 scale: isFavourite.find(
-                  (item: FavouriteItem) => item.id === product.id
+                  (item: ProductType) => item.id === product.id
                 )
                   ? 1.1
                   : 1
@@ -111,7 +109,7 @@ export const ProductDetails = ({ product }: ProductDetailsProps) => {
               onClick={() => toggleFavorite(product)}
             >
               {isFavourite.find(
-                (item: FavouriteItem) => item.id === product.id
+                (item: ProductType) => item.id === product.id
               ) ? (
                 <Heart size="15" className="fill-red-400" />
               ) : (
@@ -135,10 +133,10 @@ export const ProductDetails = ({ product }: ProductDetailsProps) => {
           </p>
           <div className="flex items-center gap-2">
             <p>TAGS:</p>
-            <div className="text-black flex gap-2 flex-wrap">
+            <div className="text-black flex gap-2 flex-wrap ">
               {product.tags.map((tag, i) => (
                 <Button
-                  className="dark:bg-slate-700 h-[2rem] p-2 dark:text-white dark:hover:bg-slate-600"
+                  className="dark:bg-slate-700 h-[1.5rem] px-2 py-1 text-xs dark:text-white dark:hover:bg-slate-600 rounded-md"
                   key={i}
                 >
                   {tag}

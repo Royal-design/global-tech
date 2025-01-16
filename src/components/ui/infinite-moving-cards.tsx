@@ -81,7 +81,7 @@ export const InfiniteMovingCards = ({
       <ul
         ref={scrollerRef}
         className={cn(
-          " flex min-w-full shrink-0 gap-4 py-4 w-max my-4 flex-wrap",
+          " flex min-w-full shrink-0 gap-4 py-1 w-max my-1 flex-wrap",
           start && "animate-scroll ",
           pauseOnHover && "hover:[animation-play-state:paused]"
         )}

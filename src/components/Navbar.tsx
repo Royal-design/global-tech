@@ -1,4 +1,4 @@
-import { Heart, ShoppingCart, UserRound } from "lucide-react";
+import { UserRound } from "lucide-react";
 import { ReactElement, useEffect, useState } from "react";
 import Headroom from "react-headroom";
 import { NavLink } from "react-router-dom";
@@ -7,7 +7,6 @@ import Search from "./Search";
 import NavbarSheet from "./NavbarSheet";
 import Switch from "./Switch";
 import { UseAuthContext } from "@/Context/Auth/UseAuthContext";
-import { UseCartContext } from "@/Context/Cart/UseCartContext";
 import { useSelector } from "react-redux";
 import { RootState } from "@/redux/store";
 import CartSheet from "./CartSheet";
@@ -50,11 +49,17 @@ const Navbar = () => {
         onUnpin={() => setIsPinned(false)}
       >
         <nav
-          className={`duration-200 text-primary bg-background gap-3  h-[4rem] px-[2rem] max-sm:px-1 w-full max-sm:justify-between flex justify-around items-center  ${
+          className={`duration-200 text-primary bg-background gap-3  h-[4rem] px-[2rem] max-sm:px-[1rem] w-full max-sm:justify-between flex justify-around items-center  ${
             isPinned && scrolled ? " shadow-md" : ""
           }`}
         >
-          <img src={logo} alt="logo" className="w-[3rem]" />
+          <div className="flex gap-2 items-center">
+            <div className="hidden  max-sm:block ">
+              <NavbarSheet />
+            </div>
+            <img src={logo} alt="logo" className="w-[3rem]" />
+          </div>
+
           <div className="w-full max-sm:hidden ">
             <Search />
           </div>
@@ -79,9 +84,6 @@ const Navbar = () => {
               <p className="flex h-5 absolute top-[-12px] w-5 right-[-10px] bg-red-600 rounded-full text-white items-center justify-center">
                 {totalFavourite}
               </p>
-            </div>
-            <div className="hidden  max-sm:block ">
-              <NavbarSheet />
             </div>
           </div>
         </nav>

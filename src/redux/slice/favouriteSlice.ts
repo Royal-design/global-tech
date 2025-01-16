@@ -1,17 +1,29 @@
+import { ProductType } from "@/Context/Products/ProductProvider";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { toast } from "react-toastify";
-import { ProductType } from "./cartSlice";
 
 export interface FavouriteState {
   items: ProductType[];
   totalFavourite: number;
 }
-const initialState: FavouriteState = JSON.parse(
-  localStorage.getItem("favourite") || "{}"
-) ?? {
-  items: [],
-  totalFavourite: 0
-};
+const initialState: FavouriteState = (() => {
+  try {
+    const storedData = JSON.parse(localStorage.getItem("favourite") || "{}");
+    return {
+      items: Array.isArray(storedData.items) ? storedData.items : [],
+      totalFavourite:
+        typeof storedData.totalFavourite === "number"
+          ? storedData.totalFavourite
+          : 0
+    };
+  } catch (error) {
+    console.error("Error parsing localStorage data:", error);
+    return {
+      items: [],
+      totalFavourite: 0
+    };
+  }
+})();
 
 export const favouriteSlice = createSlice({
   name: "favourite",

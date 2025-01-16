@@ -47,8 +47,8 @@ export const AboutPage = () => {
           alt="cover"
           className="h-full w-full object-cover"
         />
-        <article className="absolute h-full w-full  top-0 bg-background-banner ">
-          <div className="h-full w-full flex flex-col items-center justify-center">
+        <article className="absolute h-full w-full max-sm:text-center  top-0 bg-background-banner ">
+          <div className="h-full w-full max-sm:px-2 flex flex-col items-center justify-center">
             <h1 className="text-4xl font-extrabold text-white dark:text-gray-100">
               About Us
             </h1>
@@ -64,10 +64,10 @@ export const AboutPage = () => {
           </div>
         </article>
       </header>
-      <section className="px-8 mt-8 max-sm:mt-0">
+      <section className="px-8 mt-8 max-sm:px-4 max-sm:mt-4">
         <div className="flex flex-col gap-8">
           <motion.div
-            initial={{ opacity: 0, y: 40 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.5 }}
             transition={{
@@ -103,7 +103,7 @@ export const AboutPage = () => {
             </article>
           </motion.div>
           <motion.div
-            initial={{ opacity: 0, y: 40 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.5 }}
             transition={{
@@ -154,7 +154,7 @@ export const AboutPage = () => {
             </figure>
           </motion.div>
           <motion.div
-            initial={{ opacity: 0, y: 40 }}
+            initial={{ opacity: 0, y: 29 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.5 }}
             transition={{
@@ -205,7 +205,7 @@ export const AboutPage = () => {
             </article>
           </motion.div>
           <motion.div
-            initial={{ opacity: 0, y: 40 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.5 }}
             transition={{
@@ -235,7 +235,7 @@ export const AboutPage = () => {
             </article>
           </motion.div>
           <motion.div
-            initial={{ opacity: 0, y: 40 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.5 }}
             transition={{
@@ -278,7 +278,7 @@ export const AboutPage = () => {
             </figure>
           </motion.div>
           <motion.div
-            initial={{ opacity: 0, y: 40 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.5 }}
             transition={{
@@ -321,7 +321,7 @@ export const AboutPage = () => {
             </article>
           </motion.div>
           <motion.div
-            initial={{ opacity: 0, y: 40 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.5 }}
             transition={{

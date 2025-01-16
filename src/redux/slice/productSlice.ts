@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { ProductType } from "./cartSlice";
+import { ProductType } from "@/Context/Products/ProductProvider";
 
 interface ProductState {
   recommendedProducts: ProductType[];

@@ -180,7 +180,7 @@ export const EditProfile = () => {
               <FormField
                 control={form.control}
                 name="photo"
-                render={({ field }) => (
+                render={({}) => (
                   <FormItem>
                     <FormLabel className="require">
                       Upload Profile Image

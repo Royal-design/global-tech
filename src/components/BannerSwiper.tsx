@@ -1,7 +1,7 @@
 import { SwiperSlide, Swiper } from "swiper/react";
-import banner01 from "../assets/banner/banner01.jpg";
-import banner02 from "../assets/banner/banner02.jpg";
-import banner04 from "../assets/banner/banner04.jpg";
+import banner01 from "../assets/banner/banner01.webp";
+import banner02 from "../assets/banner/banner02.webp";
+import banner04 from "../assets/banner/banner04.webp";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -58,7 +58,7 @@ export const BannerSwiper = () => {
     }
   ];
   return (
-    <div className="swiper-cont">
+    <div className="swiper-cont max-sm:h-[20rem]">
       <Swiper
         autoplay={{ delay: 4000 }}
         onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
@@ -82,27 +82,33 @@ export const BannerSwiper = () => {
                 initial="initial"
                 exit="exit"
                 variants={banner}
-                className="relative w-full h-full"
+                className="relative w-full h-full max-sm:h-[20rem]"
               >
                 <img
                   src={data.img}
                   alt="banner"
-                  className={`w-full h-full object-cover ${
+                  className={`w-full  h-full object-cover ${
                     i === 2 && `object-top`
                   }`}
                 />
                 <div className="bg-background-banner absolute top-0 left-0 w-full h-full">
-                  <div className="flex flex-col justify-center font-rajdhani h-full w-[30rem] px-8 gap-4">
-                    <motion.h2 variants={title} className="text-5xl font-bold ">
+                  <div className="flex flex-col justify-center font-rajdhani h-full w-[30rem] max-sm:w-full px-8 max-sm:px-4 gap-4">
+                    <motion.h2
+                      variants={title}
+                      className="text-5xl max-sm:text-3xl font-bold "
+                    >
                       {data.heading}{" "}
                       <p className="text-green-500">{data.headingSpan}</p>
                     </motion.h2>
-                    <motion.p variants={heading1} className="text-xl">
+                    <motion.p
+                      variants={heading1}
+                      className="text-xl max-sm:text-lg"
+                    >
                       {data.text}
                     </motion.p>
                     <div className="">
                       <div className="relative group">
-                        <Button className="relative h-auto inline-block p-px font-semibold leading-6 text-white bg-gray-800 shadow-2xl cursor-pointer rounded-xl shadow-zinc-900 transition-transform duration-300 ease-in-out hover:scale-105 active:scale-95">
+                        <Button className="relative max-sm:w-[7rem] h-auto inline-block p-px font-semibold leading-6 text-white bg-gray-800 shadow-2xl cursor-pointer rounded-xl shadow-zinc-900 transition-transform duration-300 ease-in-out hover:scale-105 active:scale-95">
                           <span className="absolute inset-0 rounded-xl bg-gradient-to-r from-teal-400 via-blue-500 to-purple-500 p-[2px] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
                           <span className="relative z-10 block px-6 py-3 rounded-xl bg-gray-950">
                             <div

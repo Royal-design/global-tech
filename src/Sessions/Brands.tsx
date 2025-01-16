@@ -11,20 +11,20 @@ import xiaomi from "../assets/brands/Xiaomi-Logo.png";
 
 export const Brands = () => {
   const testimonials = [
-    { image: <img src={apple} className="w-[5rem]" /> },
-    { image: <img src={google} className="w-[5rem]" /> },
-    { image: <img src={hisense} className="w-[5rem]" /> },
-    { image: <img src={infinix} className="w-[5rem]" /> },
-    { image: <img src={lg} className="w-[5rem]" /> },
-    { image: <img src={oppo} className="w-[5rem]" /> },
-    { image: <img src={philips} className="w-[5rem]" /> },
-    { image: <img src={samsung} className="w-[5rem]" /> },
-    { image: <img src={xiaomi} className="w-[5rem]" /> }
+    { image: <img src={apple} className="w-[5rem] max-sm:w-[3rem]" /> },
+    { image: <img src={google} className="w-[5rem] max-sm:w-[3rem]" /> },
+    { image: <img src={hisense} className="w-[5rem] max-sm:w-[3rem]" /> },
+    { image: <img src={infinix} className="w-[5rem] max-sm:w-[3rem]" /> },
+    { image: <img src={lg} className="w-[5rem] max-sm:w-[3rem]" /> },
+    { image: <img src={oppo} className="w-[5rem] max-sm:w-[3rem]" /> },
+    { image: <img src={philips} className="w-[5rem] max-sm:w-[3rem]" /> },
+    { image: <img src={samsung} className="w-[5rem] max-sm:w-[3rem]" /> },
+    { image: <img src={xiaomi} className="w-[5rem] max-sm:w-[3rem]" /> }
   ];
 
   return (
-    <div className=" ">
-      <div className="px-8 mt-[4rem]">
+    <div className="">
+      <div className="px-8 max-sm:px-4 max-sm:mt-[2rem]  mt-[2rem]">
         <h2 className="font-bold text-2xl  max-sm:text-lg link w-[18rem] hover:text-green-500 font-rajdhani">
           Brands We Distribute
         </h2>

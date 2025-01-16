@@ -1,4 +1,4 @@
-import React, {
+import {
   ReactElement,
   createContext,
   useEffect,
@@ -7,10 +7,9 @@ import React, {
   useState
 } from "react";
 import { FormatPrice } from "@/components/FormatPrice";
-import { addDoc, collection, doc, getDoc, setDoc } from "firebase/firestore";
-import { auth, db } from "@/Config/firebase";
+import { doc, getDoc, setDoc } from "firebase/firestore";
+import { db } from "@/Config/firebase";
 import { UseAuthContext } from "../Auth/UseAuthContext";
-import { toast } from "react-toastify";
 
 export type CartItemType = {
   id: string;

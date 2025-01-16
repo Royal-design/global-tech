@@ -1,32 +1,33 @@
-import iphone16pro_00 from "../assets/products/iphone-16-pro-00.png";
-import iphone16pro_01 from "../assets/products/iphone-16-01.png";
-import iphone16pro_02 from "../assets/products/iphone-16-02.png";
-import infinixhot40i_00 from "../assets/products/infinix-hot40i-00.png";
+import iphone16pro_00 from "../assets/products/iphone-16-pro-00.webp";
+import iphone16pro_01 from "../assets/products/iphone-16-pro-01.webp";
+import iphone16pro_02 from "../assets/products/iphone-16-pro-02.webp";
+import infinixhot40i_00 from "../assets/products/infinix-hot40i-00.webp";
 import infinixhot40i_01 from "../assets/products/infinix-hot40i-01.webp";
 import infinixhot40i_02 from "../assets/products/infinix-hot40i-02.webp";
 import infinixhot50i_00 from "../assets/products/infinix-hot50i-00.webp";
-import infinixhot50i_01 from "../assets/products/infinix-hot50i-01.png";
+import infinixhot50i_01 from "../assets/products/infinix-hot50i-01.webp";
 import infinixhot50i_02 from "../assets/products/infinix-hot50i-02.webp";
-import hotplate_00 from "../assets/products/hotplate_single_a-00.png";
-import hotplate_01 from "../assets/products/hotplate_single_a-01.png";
-import hotplate_02 from "../assets/products/hotplate_single_a-02.png";
-import hotplatedouble_00 from "../assets/products/hotplate_double_a-00.png";
-import hotplatedouble_01 from "../assets/products/hotplate_double_a-01.png";
-import hotplatedouble_02 from "../assets/products/hotplate_double_a-02.png";
-import samsungcrystal_00 from "../assets/products/samsung_crystal-00.png";
+import hotplate_00 from "../assets/products/hotplate_single_a-00.webp";
+import hotplate_01 from "../assets/products/hotplate_single_a-01.webp";
+import hotplate_02 from "../assets/products/hotplate_single_a-02.webp";
+import hotplatedouble_00 from "../assets/products/hotplate_double_a-00.webp";
+import hotplatedouble_01 from "../assets/products/hotplate_double_a-01.webp";
+import hotplatedouble_02 from "../assets/products/hotplate_double_a-02.webp";
+import samsungcrystal_00 from "../assets/products/samsung_crystal-00.webp";
 import samsungcrystal_01 from "../assets/products/samsung_crystal-01.webp";
 import samsungcrystal_02 from "../assets/products/samsung_crystal-02.webp";
-import lgwoofer_00 from "../assets/products/lg_woofer_a-00.png";
+import lgwoofer_00 from "../assets/products/lg_woofer_a-00.webp";
 import lgwoofer_01 from "../assets/products/lg_woofer_a-01.webp";
 import lgwoofer_02 from "../assets/products/lg_woofer_a-02.webp";
-import zyrex_00 from "../assets/products/zyrex-00.png";
-import zyrex_01 from "../assets/products/zyrex-01.png";
-import zyrex_02 from "../assets/products/zyrex-02.png";
+import zyrex_00 from "../assets/products/zyrex-00.webp";
+import zyrex_01 from "../assets/products/zyrex-01.webp";
+import zyrex_02 from "../assets/products/zyrex-02.webp";
 
 export const products = [
   {
     name: "iPhone 16 Pro 256GB",
     id: "sku0001",
+    rating: 4,
     image: iphone16pro_00,
     images: [iphone16pro_01, iphone16pro_02],
     oldPrice: "3,250,000",
@@ -65,6 +66,7 @@ export const products = [
   {
     name: "Infinix Hot 40i (8GB+256GB)",
     id: "sku0002",
+    rating: 5,
     image: infinixhot40i_00,
     images: [infinixhot40i_01, infinixhot40i_02],
     oldPrice: "185,000",
@@ -103,6 +105,7 @@ export const products = [
   {
     name: "Infinix Hot 50i (8GB+256GB)",
     id: "sku0003",
+    rating: 4,
     image: infinixhot50i_00,
     images: [infinixhot50i_01, infinixhot50i_02],
     oldPrice: "156,000",
@@ -141,6 +144,7 @@ export const products = [
   {
     name: "Electric Hotplate (Single)",
     id: "sku0004",
+    rating: 3,
     image: hotplate_00,
     images: [hotplate_01, hotplate_02],
     oldPrice: "12,000",
@@ -179,6 +183,7 @@ export const products = [
   {
     name: "Electric Hotplate (Double)",
     id: "sku0005",
+    rating: 4,
     image: hotplatedouble_00,
     images: [hotplatedouble_01, hotplatedouble_02],
     oldPrice: "25,000",
@@ -217,6 +222,7 @@ export const products = [
   {
     name: "Samsung Crystal UHD 55inch",
     id: "sku0006",
+    rating: 5,
     image: samsungcrystal_00,
     images: [samsungcrystal_01, samsungcrystal_02],
     oldPrice: "1,400,000",
@@ -255,6 +261,7 @@ export const products = [
   {
     name: "XBoom Home Theater",
     id: "sku0007",
+    rating: 4,
     image: lgwoofer_00,
     images: [lgwoofer_01, lgwoofer_02],
     oldPrice: "98,000",
@@ -292,6 +299,7 @@ export const products = [
   {
     name: "Zyrex Sky Dual Core",
     id: "sku0008",
+    rating: 4,
     image: zyrex_00,
     images: [zyrex_01, zyrex_02],
     oldPrice: "3,700,000",

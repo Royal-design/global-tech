@@ -1,14 +1,6 @@
 import BreadCrumbs from "@/components/BreadCrumbs";
 import { toast } from "react-toastify";
-import { useNavigate } from "react-router-dom";
-import {
-  addDoc,
-  collection,
-  getDocs,
-  query,
-  serverTimestamp,
-  where
-} from "firebase/firestore";
+import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -98,7 +90,7 @@ export const ContactPage = () => {
             alt="cover"
             className="h-full w-full object-cover"
           />
-          <article className="absolute h-full w-full  top-0 bg-background-banner ">
+          <article className="absolute max-sm:text-center max-sm:px-2 h-full w-full  top-0 bg-background-banner ">
             <div className="h-full w-full flex flex-col items-center justify-center">
               <h1 className="text-4xl font-extrabold text-white dark:text-gray-100">
                 Contact Us
@@ -113,10 +105,10 @@ export const ContactPage = () => {
             </div>
           </article>
         </header>
-        <div className="flex justify-center mt-6">
+        <div className="flex w-full max-sm:px-4 justify-center  mt-6">
           <Form {...form}>
             <form onSubmit={form.handleSubmit(handleSubmit)}>
-              <Card className="bg-background overflow-hidden text-primary w-[25rem]">
+              <Card className="bg-background overflow-hidden text-primary max-sm:w-full w-[25rem]">
                 <CardHeader>
                   <CardTitle className=" text-lg">Leave your message</CardTitle>
                 </CardHeader>

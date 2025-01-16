@@ -46,11 +46,11 @@ export const BlogDetailPage = () => {
   const navigate = useNavigate();
   const blog = blogData.find((blog) => blog.id === Number(blogid));
   const blogCategory = blogData.map((blog) => blog.category);
-  useEffect(() => {
-    window.scrollTo({
-      top: 0
-    });
-  }, []);
+  // useEffect(() => {
+  //   window.scrollTo({
+  //     top: 0
+  //   });
+  // }, []);
 
   const commentSchema = z.object({
     firstname: z
@@ -150,9 +150,9 @@ export const BlogDetailPage = () => {
           alt={blog?.author}
           className="h-full w-full object-cover"
         />
-        <article className="absolute h-full w-full  top-0 bg-background-banner ">
-          <div className="h-full w-full flex flex-col items-center justify-center">
-            <h1 className="text-4xl max-sm:text-2xl font-extrabold text-white dark:text-gray-100">
+        <article className="absolute h-full w-full top-0 bg-background-banner ">
+          <div className="h-full w-full flex flex-col max-sm:px-2 items-center justify-center">
+            <h1 className="text-4xl max-sm:text-2xl max-sm:text-center font-extrabold text-white dark:text-gray-100">
               {blog?.title}
             </h1>
             <p className="text-lg text-center max-sm:px-2 text-gray-300 dark:text-gray-300 mt-4">
@@ -164,14 +164,14 @@ export const BlogDetailPage = () => {
           </div>
         </article>
       </header>
-      <div className="hidden px-8 pt-4 max-sm:block max-md:block">
+      <div className="hidden px-8 max-sm:px-4 pt-4 max-sm:block max-md:block">
         <BlogSearchSheet
           blogCategory={blogCategory}
           handleBlogClick={handleBlogClick}
         />
       </div>
 
-      <main className="main mt-[4rem] px-8">
+      <main className="main mt-[4rem] max-sm:mt-[2rem] px-8 max-sm:px-4">
         <div className="flex max-md:flex-col max-sm:flex-col gap-8">
           <section className="w-[70%] max-md:w-full max-sm:w-full flex flex-col gap-4 h-auto">
             <div className="h-[15rem] w-full">
@@ -182,16 +182,16 @@ export const BlogDetailPage = () => {
               />
             </div>
             <article className="w-full justify-between flex gap-3">
-              <div className="flex items-center gap-2">
+              <div className="flex items-center w-full gap-2">
                 <img
                   src={blog?.authorImage}
                   alt={blog?.author}
                   className="h-8 w-8 rounded-full object-cover"
                 />
-                <p className="text-xs">{blog?.author}</p>
+                <p className="text-xs w-full">{blog?.author}</p>
               </div>
               <Separator orientation="vertical" className="border-[1px]" />
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2 ">
                 <CalendarDays size={20} />
                 <p className="text-xs">{blog?.date}</p>
               </div>
@@ -228,13 +228,16 @@ export const BlogDetailPage = () => {
                 {blog?.bodyContent}
               </p>
             </div>
-            <div className="flex gap-3  items-center">
-              <p className="text-slate-700 dark:text-slate-300">Tags: </p>
-              <div className="flex gap-2 flex-wrap">
+            <div className="flex items-center gap-2">
+              <p>TAGS:</p>
+              <div className="text-black flex gap-2 flex-wrap ">
                 {blog?.tags.map((tag, i) => (
-                  <div className="" key={i}>
-                    <Button variant="outline">{tag}</Button>
-                  </div>
+                  <Button
+                    className="dark:bg-slate-700 h-[1.5rem] px-2 py-1 text-xs dark:text-white dark:hover:bg-slate-600 rounded-md"
+                    key={i}
+                  >
+                    {tag}
+                  </Button>
                 ))}
               </div>
             </div>
@@ -278,10 +281,10 @@ export const BlogDetailPage = () => {
                   </motion.div>
                 ))}
             </div>
-            <div className="">
+            <div className="w-full">
               <Form {...form}>
                 <form onSubmit={form.handleSubmit(handleSubmit)}>
-                  <Card className="bg-background overflow-hidden text-primary w-[25rem]">
+                  <Card className="bg-background overflow-hidden text-primary max-sm:w-full w-[25rem]">
                     <CardHeader>
                       <CardTitle className=" text-lg">
                         Leave a comment

@@ -11,14 +11,9 @@ export const RootLayout: FC = () => {
   const registerPage = location.pathname === "/register";
 
   return (
-    <div>
-      <ToastContainer
-        position="top-center"
-        theme="dark"
-        toastClassName={() =>
-          "bg-gray-800 text-white flex rounded-lg shadow-lg p-[0.5rem] w-full items-center "
-        }
-      />
+    <div className="w-full">
+      <ToastContainer position="top-center" autoClose={5000} theme="dark" />
+
       {!loginPage && !registerPage && <Navbar />}
       <main>
         <Outlet />
