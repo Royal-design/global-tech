@@ -4,7 +4,7 @@ import { Separator } from "./ui/separator";
 import { Home, Info, ShoppingBag } from "lucide-react";
 export const Footer = () => {
   return (
-    <footer className="font-rajdhani  mt-6 text-sm ">
+    <footer className="font-rajdhani  mt-[4rem] text-sm ">
       <Separator className="my-4" />
       <div className="grid grid-cols-[repeat(5,1fr)] gap-4 max-sm:grid-cols-2">
         <div className="contact max-sm:col-span-2 max-sm:mb-6">

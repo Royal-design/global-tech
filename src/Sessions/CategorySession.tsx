@@ -34,7 +34,7 @@ export const CategorySession = () => {
     }
   ];
   return (
-    <div className=" font-rajdhani ">
+    <div className=" font-rajdhani my-[4rem] ">
       <div className="flex mt-4 items-center justify-between px-8 max-sm:px-4">
         <Separator className="flex-1" />
         <p className="px-5 text-2xl max-sm:text-lg">Popular Category</p>

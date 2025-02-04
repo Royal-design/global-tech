@@ -34,7 +34,7 @@ export const NewDeals = () => {
     }
   ];
   return (
-    <div className="">
+    <div className="my-[2rem]">
       <div className="grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-4 px-8  max-sm:hidden">
         {data.map((data, i) => (
           <motion.div transition={{ duration: 0.5 }} key={i}>

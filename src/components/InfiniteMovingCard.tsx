@@ -30,7 +30,7 @@ export const InfiniteMovingCard = () => {
     }
   ];
   return (
-    <div className=" z-0 rounded-md  antialiased items-center justify-center relative overflow-hidden">
+    <div className=" z-0 rounded-md my-[2rem]  antialiased items-center justify-center relative overflow-hidden">
       <InfiniteMovingCards items={testimonials} direction="left" speed="slow" />
     </div>
   );

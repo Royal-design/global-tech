@@ -47,7 +47,7 @@ export const BestSellingProduct = () => {
         </article>
       </div>
 
-      <main className="grid grid-cols-4 max-md:grid-cols-3  max-sm:grid-cols-2 mt-[4rem] max-sm:mt-[2rem]  gap-4">
+      <main className="grid grid-cols-4 max-md:grid-cols-3  max-sm:grid-cols-2 my-[4rem] max-sm:my-[4rem]  gap-4">
         {filteredProducts.map((product, i) => (
           <ProductCard
             key={i}

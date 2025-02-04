@@ -31,7 +31,7 @@ export const RelatedProduct = () => {
     }
   };
   return (
-    <div className="related-swiper h-[22rem] mb-[4rem]">
+    <div className="related-swiper h-[22rem] mb-[8rem] mt-[4rem]">
       <p className="text-2xl my-4">Related Products</p>
       <div className="max-sm:hidden max-md:hidden">
         <Swiper
