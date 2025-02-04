@@ -22,7 +22,7 @@ export const ProductSwiperMobile = () => {
   const [thumbsSwiper, setThumbsSwiper] = useState<SwiperClass | null>(null);
   return (
     <div className="hidden h-full max-md:flex max-md:flex-col max-sm:flex max-sm:flex-col w-full mt-6 gap-6">
-      <div className="product-swiper w-full flex flex-col ">
+      <div className="product-swiper w-full h-full flex flex-col gap-[1rem] ">
         {/* Main Image Swiper */}
         <Swiper
           style={
@@ -36,7 +36,7 @@ export const ProductSwiperMobile = () => {
           navigation
           thumbs={{ swiper: thumbsSwiper }}
           modules={[FreeMode, Navigation, Thumbs]}
-          className="mySwiper2 w-full"
+          className="mySwiper2 w-full  h-[25rem]"
         >
           <SwiperSlide>
             <figure className="flex h-full w-full  items-center justify-center bg-gray-300 dark:bg-slate-900">

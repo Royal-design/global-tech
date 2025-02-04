@@ -266,8 +266,7 @@
 }
 @media (max-width: 900px) {
   .product-swiper .swiper-thumbs {
-    margin-top: 2rem;
-    height: auto;
+    margin-top: 5px;
     margin-right: 0.5rem;
     width: 100%;
   }
