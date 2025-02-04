@@ -171,7 +171,7 @@ export const BlogDetailPage = () => {
         />
       </div>
 
-      <main className="main mt-[4rem] max-sm:mt-[2rem] px-8 max-sm:px-4">
+      <main className="main my-[4rem] max-sm:my-[2rem] px-8 max-sm:px-4">
         <div className="flex max-md:flex-col max-sm:flex-col gap-8">
           <section className="w-[70%] max-md:w-full max-sm:w-full flex flex-col gap-4 h-auto">
             <div className="h-[15rem] w-full">
@@ -181,7 +181,7 @@ export const BlogDetailPage = () => {
                 className="w-full h-full object-cover"
               />
             </div>
-            <article className="w-full justify-between flex gap-3">
+            <article className="w-full justify-between my-[1rem] flex gap-3">
               <div className="flex items-center w-full gap-2">
                 <img
                   src={blog?.authorImage}
@@ -208,23 +208,23 @@ export const BlogDetailPage = () => {
                 <p className="text-xs">{updateComments.length}</p>
               </div>
             </article>
-            <div className="mb-2  flex flex-col gap-2">
+            <div className="my-[1rem] flex flex-col gap-2">
               <h1 className="text-xl font-bold dark:text-slate-300 text-slate-700">
                 {blog?.title}
               </h1>
-              <Separator className="border-[1px] mt-1 dark:border-slate-800 border-black" />
-              <p className="text-sm text-slate-700 dark:text-slate-300">
+              <Separator className="border-[1px] my-[1rem] dark:border-slate-800 border-black" />
+              <p className="text-sm text-slate-700  dark:text-slate-300">
                 {blog?.shortDescription}
               </p>
 
-              <p className=" text-sm text-slate-700 dark:text-slate-300">
+              <p className="leading-[2rem] text-sm text-slate-700 dark:text-slate-300">
                 {blog?.longDescription}
               </p>
               <div className="flex mt-4 items-center gap-4">
                 <Separator className="border-[1px]  dark:border-slate-800 w-8 h-1 border-black" />
                 <p className=" text-sm  text-slate-700">{blog?.author}</p>
               </div>
-              <p className=" text-sm mt-4 text-slate-700 dark:text-slate-300">
+              <p className="leading-[2rem] text-sm mt-4 text-slate-700 dark:text-slate-300">
                 {blog?.bodyContent}
               </p>
             </div>
@@ -241,13 +241,13 @@ export const BlogDetailPage = () => {
                 ))}
               </div>
             </div>
-            <div className=" flex gap-2 w-full h-full items-center">
+            <div className=" flex my-[1rem] gap-2 w-full h-full items-center">
               <p className="text-slate-700 dark:text-slate-300">Comments </p>
               <p className="h-5 w-5 bg-background-card text-slate-700 dark:text-slate-300 rounded-full p-2 flex items-center justify-center">
                 {updateComments.length}
               </p>
             </div>
-            <div className="flex flex-col gap-3 w-full">
+            <div className="flex flex-col gap-[1rem] w-full">
               {updateComments.length > 1 &&
                 updateComments.map((comment, i) => (
                   <motion.div

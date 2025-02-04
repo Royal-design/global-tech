@@ -25,10 +25,10 @@ const config: Config = {
         },
         "max-lg": {
           min: "901px",
-          max: "1279px"
+          max: "1100px"
         },
         "max-xl": {
-          min: "1280px",
+          min: "1101px",
           max: "1535px"
         },
         "2xl": "1536px"
