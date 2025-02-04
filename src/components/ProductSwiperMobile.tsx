@@ -21,7 +21,7 @@ export const ProductSwiperMobile = () => {
   const product = allProducts.find((item) => item.id === productid);
   const [thumbsSwiper, setThumbsSwiper] = useState<SwiperClass | null>(null);
   return (
-    <div className="hidden h-auto max-md:flex max-md:flex-col max-sm:flex max-sm:flex-col w-full mt-6 gap-6">
+    <div className="hidden h-full max-md:flex max-md:flex-col max-sm:flex max-sm:flex-col w-full mt-6 gap-6">
       <div className="product-swiper w-full flex flex-col ">
         {/* Main Image Swiper */}
         <Swiper
@@ -39,13 +39,13 @@ export const ProductSwiperMobile = () => {
           className="mySwiper2 w-full"
         >
           <SwiperSlide>
-            <figure className="flex h-screen w-full  items-center justify-center bg-gray-300 dark:bg-slate-900">
+            <figure className="flex h-full w-full  items-center justify-center bg-gray-300 dark:bg-slate-900">
               <img src={product?.image} className="w-[20rem]  object-contain" />
             </figure>
           </SwiperSlide>
           {product?.images.map((image, i) => (
             <SwiperSlide key={i}>
-              <figure className="flex h-screen w-full items-center justify-center bg-gray-300 dark:bg-slate-900">
+              <figure className="flex h-full w-full items-center justify-center bg-gray-300 dark:bg-slate-900">
                 <img src={image} className="w-[20rem]  object-contain" />
               </figure>
             </SwiperSlide>

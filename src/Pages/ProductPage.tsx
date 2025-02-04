@@ -33,7 +33,7 @@ export const ProductPage = () => {
         <BreadCrumbs />
       </div>
 
-      <div className="flex h-auto max-sm:hidden max-md:hidden w-full mt-6 gap-6">
+      <div className="flex h-[35rem]  max-sm:hidden max-md:hidden w-full mt-6 gap-6">
         <div className="product-swiper   w-[50%] max-sm:w-full">
           {/* Thumbnail Swiper */}
           <Swiper
@@ -76,7 +76,7 @@ export const ProductPage = () => {
             className="mySwiper2 w-full"
           >
             <SwiperSlide>
-              <figure className="flex h-screen w-full  items-center justify-center bg-gray-300 dark:bg-slate-900">
+              <figure className="flex h-[35rem] w-full  items-center justify-center bg-gray-300 dark:bg-slate-900">
                 <img
                   src={product?.image}
                   className="w-[20rem]  object-contain"
@@ -85,7 +85,7 @@ export const ProductPage = () => {
             </SwiperSlide>
             {product?.images.map((image, i) => (
               <SwiperSlide key={i}>
-                <figure className="flex h-screen w-full items-center justify-center bg-gray-300 dark:bg-slate-900">
+                <figure className="flex h-[35rem] w-full items-center justify-center bg-gray-300 dark:bg-slate-900">
                   <img src={image} className="w-[20rem]  object-contain" />
                 </figure>
               </SwiperSlide>
@@ -105,66 +105,3 @@ export const ProductPage = () => {
     </div>
   );
 };
-
-{
-  /* <div className="hidden max-sm:flex max-sm:flex-col mt-6">
-        <div className="product-swiper ">
-          <Swiper
-            style={
-              {
-                "--swiper-navigation-color": "#fff",
-                "--swiper-pagination-color": "#fff"
-              } as React.CSSProperties
-            }
-            loop={true}
-            spaceBetween={10}
-            navigation={true}
-            thumbs={{ swiper: thumbsSwiper }}
-            modules={[FreeMode, Navigation, Thumbs]}
-            className="mySwiper2  w-full flex items-center justify-center h-full dark:bg-slate-900 overflow-hidden bg-gray-300"
-          >
-            <SwiperSlide>
-              <figure className="w-full flex items-center  justify-center h-full dark:bg-slate-900 overflow-hidden bg-gray-300">
-                <img
-                  src={product?.image}
-                  className="h-full w-full object-cover"
-                />
-              </figure>
-            </SwiperSlide>
-            {product?.images.map((image, i) => (
-              <SwiperSlide key={i}>
-                <figure className="w-full flex items-center justify-center h-full overflow-hidden dark:bg-slate-900 bg-gray-300">
-                  <img src={image} className=" w-full h-full object-cover" />
-                </figure>
-              </SwiperSlide>
-            ))}
-          </Swiper>
-          <Swiper
-            onSwiper={setThumbsSwiper}
-            loop={true}
-            spaceBetween={10}
-            slidesPerView={1}
-            freeMode={true}
-            watchSlidesProgress={true}
-            modules={[FreeMode, Navigation, Thumbs]}
-            className=" swiper-thumb w-full"
-          >
-            <SwiperSlide>
-              <figure className="w-full flex flex-col items-center justify-center h-full overflow-hidden dark:bg-slate-900 bg-gray-300">
-                <img src={product?.image} className="w-[5rem] object-cover" />
-              </figure>
-            </SwiperSlide>
-            {product?.images.map((image, i) => (
-              <SwiperSlide key={i}>
-                <figure className="w-full flex items-center justify-center h-full dark:bg-slate-900 overflow-hidden bg-gray-300">
-                  <img src={image} className="object-cover" />
-                </figure>
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </div>
-        <div className="product-content w-full  ">
-          {product && <ProductDetails product={product} />}
-        </div>
-      </div> */
-}

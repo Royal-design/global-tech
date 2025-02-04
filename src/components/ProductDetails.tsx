@@ -43,7 +43,7 @@ export const ProductDetails = ({ product }: ProductDetailsProps) => {
   };
 
   return (
-    <div className="p-4 max-sm:p-0">
+    <div className="p-4 h-full max-sm:p-0">
       <div className="max-sm:hidden max-md:hidden">
         <BreadCrumbs />
       </div>
