@@ -13,7 +13,13 @@ import {
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { addDoc, collection, getDocs, query, where } from "firebase/firestore";
+import {
+  addDoc,
+  collection,
+  onSnapshot,
+  query,
+  where
+} from "firebase/firestore";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -93,8 +99,6 @@ export const BlogDetailPage = () => {
       });
     }
     toast.success("New comment added");
-    fetchUserComments();
-
     form.reset();
     try {
     } catch (error: unknown) {
@@ -104,40 +108,42 @@ export const BlogDetailPage = () => {
     }
   };
 
-  const fetchUserComments = async () => {
-    const commentsRef = collection(db, "comments");
+  useEffect(() => {
+    if (!blog || !user) return;
 
+    const commentsRef = collection(db, "comments");
     const q = query(
       commentsRef,
-      where("userId", "==", user?.id),
-      where("blogId", "==", blog?.id)
+      where("userId", "==", user.id),
+      where("blogId", "==", blog.id)
     );
 
-    const querySnapshot = await getDocs(q);
+    const unsubscribe = onSnapshot(q, (snapshot) => {
+      const fetchedComments = snapshot.docs.map((doc) => {
+        const data = doc.data();
+        return {
+          id: doc.id,
+          author: `${data.firstname} ${data.lastname}`,
+          date: new Date(data.date).toLocaleDateString(),
+          image: data.image,
+          content: data.content
+        };
+      });
 
-    const comments = querySnapshot.docs.map((doc) => {
-      const data = doc.data();
-      return {
-        id: blog?.id,
-        author: `${data.firstname} ${data.lastname}`,
-        date: new Date().toISOString(),
-        image: data.image,
-        content: data.content
-      };
+      // Update local storage with the latest comments
+      localStorage.setItem(
+        `gtechcomments-${blog.id}`,
+        JSON.stringify(fetchedComments)
+      );
     });
 
-    localStorage.setItem(
-      `comments-${blog?.id}`,
-      JSON.stringify(
-        comments.find((comment) => comment.id === blog?.id) && comments
-      )
-    );
-    return comments;
-  };
-  const comments = JSON.parse(
-    localStorage.getItem(`comments-${blog?.id}`) || "[]"
+    return () => unsubscribe();
+  }, []);
+
+  const storedComments = JSON.parse(
+    localStorage.getItem(`gtechcomments-${blog?.id}`) || "[]"
   );
-  const updateComments = [...(blog?.comments || []), ...comments];
+  const updateComments = [...(blog?.comments || []), ...storedComments];
   const handleBlogClick = (id: string) => {
     navigate(`/blog/${id}`);
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -182,7 +188,7 @@ export const BlogDetailPage = () => {
               />
             </div>
             <article className="w-full justify-between my-[1rem] flex gap-3">
-              <div className="flex items-center w-full gap-2">
+              <div className=" items-center flex   gap-2">
                 <img
                   src={blog?.authorImage}
                   alt={blog?.author}
@@ -190,22 +196,29 @@ export const BlogDetailPage = () => {
                 />
                 <p className="text-xs w-full">{blog?.author}</p>
               </div>
-              <Separator orientation="vertical" className="border-[1px]" />
-              <div className="flex items-center gap-2 ">
-                <CalendarDays size={20} />
-                <p className="text-xs">{blog?.date}</p>
-              </div>
-              <Separator orientation="vertical" className="border-[1px]" />
+              <div className="flex items-center gap-4">
+                <div className="flex items-center gap-2 ">
+                  <CalendarDays size={20} />
+                  <p className="text-xs">{blog?.date}</p>
+                </div>
+                <Separator
+                  orientation="vertical"
+                  className="border-[1px]  h-full"
+                />
 
-              <div className="flex items-center gap-2">
-                <Tag size={20} />
-                <p className="text-xs">{blog?.category}</p>
-              </div>
-              <Separator orientation="vertical" className="border-[1px]" />
+                <div className="flex items-center gap-2">
+                  <Tag size={20} />
+                  <p className="text-xs">{blog?.category}</p>
+                </div>
+                <Separator
+                  orientation="vertical"
+                  className="border-[1px] h-full"
+                />
 
-              <div className="flex items-center gap-2">
-                <MessageCircle size={20} />
-                <p className="text-xs">{updateComments.length}</p>
+                <div className="flex items-center gap-2">
+                  <MessageCircle size={20} />
+                  <p className="text-xs">{updateComments.length}</p>
+                </div>
               </div>
             </article>
             <div className="my-[1rem] flex flex-col gap-2">
@@ -248,7 +261,7 @@ export const BlogDetailPage = () => {
               </p>
             </div>
             <div className="flex flex-col gap-[1rem] w-full">
-              {updateComments.length > 1 &&
+              {updateComments.length >= 1 &&
                 updateComments.map((comment, i) => (
                   <motion.div
                     initial={{ scale: 1 }}
