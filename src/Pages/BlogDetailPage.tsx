@@ -12,7 +12,6 @@ import {
 } from "lucide-react";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { addDoc, collection, getDocs, query, where } from "firebase/firestore";
 import { z } from "zod";
@@ -39,6 +38,7 @@ import { UseAuthContext } from "@/Context/Auth/UseAuthContext";
 import { Textarea } from "@/components/ui/textarea";
 import { Footer } from "@/components/Footer";
 import BlogSearchSheet from "@/components/BlogSearchSheet";
+import { toast } from "sonner";
 
 export const BlogDetailPage = () => {
   const { user } = UseAuthContext();
