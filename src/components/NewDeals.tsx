@@ -34,13 +34,21 @@ export const NewDeals = () => {
     }
   ];
   return (
-    <div className="my-[2rem]">
-      <div className="grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-4 px-8  max-sm:hidden">
+    <motion.div
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true, amount: 0.1 }}
+      transition={{
+        duration: 1
+      }}
+      className="my-[2rem]"
+    >
+      <div className="grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-4 px-8 h-full  max-sm:hidden">
         {data.map((data, i) => (
           <motion.div transition={{ duration: 0.5 }} key={i}>
             <Card className=" border h-full hover:border-green-300 overflow-hidden rounded-2xl relative">
               <CardContent
-                className={`flex max-lg:h-full p-0 top-0 bg-gradient-to-r  ${
+                className={`flex h-full p-0 top-0 bg-gradient-to-r  ${
                   (i === 0 && `from-[#050c47a5]  to-[#60162e93]`) ||
                   (i === 1 && `from-[rgba(7,7,30,0.65)]  to-[#30051293]`) ||
                   (i === 2 && `from-[rgba(17,69,69,0.65)]  to-[#09080893]`)
@@ -107,6 +115,6 @@ export const NewDeals = () => {
           ))}
         </Swiper>
       </main>
-    </div>
+    </motion.div>
   );
 };
