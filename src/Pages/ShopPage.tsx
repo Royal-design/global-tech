@@ -15,7 +15,7 @@ export const ShopPage = () => {
           </div>
           <BreadCrumbs />
         </div>
-        <div className="pr-2 col-span-1 w-full max-sm:hidden h-auto  ">
+        <div className="pr-2 col-span-1 w-full max-sm:hidden h-screen  xl:h-[52rem] ">
           <AccordionTest />
         </div>
         <div className="banner col-span-3 h-auto max-sm:h-full ">

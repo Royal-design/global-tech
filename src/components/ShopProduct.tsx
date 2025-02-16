@@ -63,7 +63,7 @@ export const ShopProduct = () => {
   };
   return (
     <div className="">
-      <div className="h-full max-sm:h-full p-2 max-sm:mt-[1rem] overflow-y-scroll shop-product mt-[4rem] font-rajdhani">
+      <div className="h-auto  max-sm:h-full p-2 max-sm:mt-[1rem] overflow-y-scroll shop-product mt-[4rem] font-rajdhani">
         <div className="max-sm:hidden ">
           <BreadCrumbs />
         </div>

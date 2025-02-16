@@ -48,7 +48,7 @@ export const AboutPage = () => {
           className="h-full w-full object-cover"
         />
         <article className="absolute h-full w-full max-sm:text-center  top-0 bg-background-banner ">
-          <div className="h-full w-full max-sm:px-2 flex flex-col items-center justify-center">
+          <div className="h-full w-full max-sm:px-2 flex flex-col gap-4 items-center justify-center">
             <h1 className="text-4xl font-extrabold text-white dark:text-gray-100">
               About Us
             </h1>
@@ -65,7 +65,7 @@ export const AboutPage = () => {
         </article>
       </header>
       <section className="px-8 mt-8 max-sm:px-4 max-sm:mt-4">
-        <div className="flex flex-col gap-8">
+        <div className="flex flex-col gap-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -84,7 +84,7 @@ export const AboutPage = () => {
             </figure>
 
             <article className="w-[60%] max-sm:w-full">
-              <p className="text-lg font-bold mb-4">Our Mission</p>
+              <p className="text-2xl font-bold mb-4">Our Mission</p>
               <p className="text-sm leading-[1.5rem] ">
                 Our mission is to provide innovative, high-quality, and
                 affordable tech solutions to our customers while ensuring
@@ -112,7 +112,7 @@ export const AboutPage = () => {
             className="flex max-sm:hidden gap-8"
           >
             <article className="w-[60%]">
-              <p className="text-lg font-bold mb-4">Our Vision</p>
+              <p className="text-2xl font-bold mb-4">Our Vision</p>
 
               <p className="text-sm leading-[1.5rem]">
                 Our vision is to create a world where technology is accessible,
@@ -170,7 +170,7 @@ export const AboutPage = () => {
               />
             </figure>
             <article className="w-full">
-              <p className="text-lg font-bold mb-4">Our Vision</p>
+              <p className="text-2xl font-bold mb-4">Our Vision</p>
 
               <p className="text-sm leading-[1.5rem]">
                 Our vision is to create a world where technology is accessible,
@@ -214,7 +214,7 @@ export const AboutPage = () => {
             className="flex flex-col gap-2"
           >
             <article>
-              <p className="text-lg font-bold mb-4">What We Offer</p>
+              <p className="text-2xl font-bold mb-4">What We Offer</p>
               <div className="grid  [@media(min-width:400px)_and_(max-width:700px)]:grid-cols-2 gap-4 grid-cols-[repeat(auto-fit,minmax(230px,1fr))] ">
                 {data.map((data) => (
                   <Card
@@ -244,9 +244,9 @@ export const AboutPage = () => {
             className="flex  max-sm:hidden gap-8"
           >
             <article className="w-[60%]">
-              <p className="text-lg font-bold mb-4">Our Core Values</p>
+              <p className="text-2xl font-bold mb-4">Our Core Values</p>
 
-              <ul className=" mt-2 text-sm flex flex-col gap-2">
+              <ul className=" mt-2 text-lg flex flex-col gap-2">
                 <li className="bg-slate-300 dark:bg-slate-600 pt-1">
                   <p className="border-b py-1 ml-1">Innovation</p>
                   <p className="bg-slate-200 dark:bg-slate-500 pl-1">
@@ -294,7 +294,7 @@ export const AboutPage = () => {
               />
             </figure>
             <article className="w-full">
-              <p className="text-lg font-bold mb-4">Our Core Values</p>
+              <p className="text-2xl font-bold mb-4">Our Core Values</p>
 
               <ul className=" mt-2 text-sm flex flex-col gap-4">
                 <li className="bg-slate-300 dark:bg-slate-600 pt-1">
@@ -391,7 +391,7 @@ export const AboutPage = () => {
               </motion.div>
             </div>
             <article className="">
-              <p className="text-lg font-bold mb-4">Our Team</p>
+              <p className="text-2xl font-bold mb-4">Our Team</p>
               <p className="max-sm:text-sm   max-sm:leading-[1.5rem]">
                 Behind Global Tech is a dedicated team of tech-savvy
                 professionals. We work tirelessly to source the best products,

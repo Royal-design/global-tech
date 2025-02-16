@@ -4,6 +4,9 @@ import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { FaMapMarkerAlt, FaPhoneAlt } from "react-icons/fa";
+import { FaEnvelope } from "react-icons/fa6";
+
 import {
   Form,
   FormControl,
@@ -105,90 +108,92 @@ export const ContactPage = () => {
             </div>
           </article>
         </header>
-        <div className="flex w-full max-sm:px-4 justify-center  mt-6">
+        <div className="flex container max-sm:flex-col gap-8 w-full max-sm:px-4 justify-center  mt-6">
           <Form {...form}>
-            <form onSubmit={form.handleSubmit(handleSubmit)}>
-              <Card className="bg-background overflow-hidden text-primary max-sm:w-full w-[25rem]">
+            <form
+              onSubmit={form.handleSubmit(handleSubmit)}
+              className=" flex-1"
+            >
+              <Card className="bg-background overflow-hidden text-primary max-sm:w-full ">
                 <CardHeader>
-                  <CardTitle className=" text-lg">Leave your message</CardTitle>
+                  <CardTitle className=" text-2xl text-center">
+                    Leave your message
+                  </CardTitle>
                 </CardHeader>
-                <CardContent className="flex flex-col gap-1">
-                  <div className="flex w-full gap-5">
-                    <FormField
-                      control={form.control}
-                      name="firstname"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel className="require">First Name</FormLabel>
-                          <FormControl>
-                            <Input
-                              type="text"
-                              className="focus:border-green-400 border-primary focus:border-1 duration-150"
-                              placeholder="Enter your firstname"
-                              {...field}
-                            />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                    <FormField
-                      control={form.control}
-                      name="lastname"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel className="require">Last Name</FormLabel>
-                          <FormControl>
-                            <Input
-                              type="text"
-                              className="focus:border-green-400 border-primary focus:border-1 duration-150"
-                              placeholder="Enter your lastname"
-                              {...field}
-                            />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                  </div>
-                  <div className="flex w-full gap-5">
-                    <FormField
-                      control={form.control}
-                      name="address"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel className="require">Address</FormLabel>
-                          <FormControl>
-                            <Input
-                              type="text"
-                              className="focus:border-green-400 border-primary focus:border-1 duration-150"
-                              placeholder="Enter your address"
-                              {...field}
-                            />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                    <FormField
-                      control={form.control}
-                      name="email"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel className="require">Email</FormLabel>
-                          <FormControl>
-                            <Input
-                              type="email"
-                              className="focus:border-green-400 border-primary focus:border-1 duration-150"
-                              placeholder="Enter a valid email"
-                              {...field}
-                            />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                  </div>
+                <CardContent className="flex flex-col gap-3">
+                  <FormField
+                    control={form.control}
+                    name="firstname"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel className="require">First Name</FormLabel>
+                        <FormControl>
+                          <Input
+                            type="text"
+                            className="focus:border-green-400 border-primary focus:border-1 duration-150"
+                            placeholder="Enter your firstname"
+                            {...field}
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  <FormField
+                    control={form.control}
+                    name="lastname"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel className="require">Last Name</FormLabel>
+                        <FormControl>
+                          <Input
+                            type="text"
+                            className="focus:border-green-400 border-primary focus:border-1 duration-150"
+                            placeholder="Enter your lastname"
+                            {...field}
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+
+                  <FormField
+                    control={form.control}
+                    name="address"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel className="require">Address</FormLabel>
+                        <FormControl>
+                          <Input
+                            type="text"
+                            className="focus:border-green-400 border-primary focus:border-1 duration-150"
+                            placeholder="Enter your address"
+                            {...field}
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  <FormField
+                    control={form.control}
+                    name="email"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel className="require">Email</FormLabel>
+                        <FormControl>
+                          <Input
+                            type="email"
+                            className="focus:border-green-400 border-primary focus:border-1 duration-150"
+                            placeholder="Enter a valid email"
+                            {...field}
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
 
                   <FormField
                     control={form.control}
@@ -220,6 +225,47 @@ export const ContactPage = () => {
               </Card>
             </form>
           </Form>
+          <div className="space-y-4 flex-1  pb-6">
+            <h2 className="text-2xl mb-6 max-sm:text-2xl text-center font-semibold">
+              Contact Details
+            </h2>
+
+            <div className="flex items-start gap-4">
+              <FaPhoneAlt className="text-slate-600 mt-1" size={18} />
+              <div>
+                <p className="text-sm font-medium text-gray-700 dark:text-gray-100 ">
+                  Phone
+                </p>
+                <p className="text-gray-600 dark:text-gray-200">
+                  +234 123 456 7890
+                </p>
+              </div>
+            </div>
+
+            <div className="flex items-start gap-4">
+              <FaEnvelope className="text-slate-600 mt-1" size={18} />
+              <div>
+                <p className="text-sm font-medium text-gray-700 dark:text-gray-100">
+                  Email
+                </p>
+                <p className="text-gray-600 dark:text-gray-200">
+                  support@furniturestore.com
+                </p>
+              </div>
+            </div>
+
+            <div className="flex items-start gap-4">
+              <FaMapMarkerAlt className="text-slate-600 mt-1" size={18} />
+              <div>
+                <p className="text-sm font-medium text-gray-700 dark:text-gray-100">
+                  Address
+                </p>
+                <p className="text-gray-600 dark:text-gray-200">
+                  12, Victoria Island, Lagos, Nigeria
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </main>
       <Footer />
