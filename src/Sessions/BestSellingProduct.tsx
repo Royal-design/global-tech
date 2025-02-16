@@ -14,6 +14,7 @@ import { RootState } from "@/redux/store";
 import { useEffect } from "react";
 import { setBestsellingProducts } from "@/redux/slice/productSlice";
 import { ProductCard } from "@/components/ProductCard";
+import { motion } from "framer-motion";
 
 export const BestSellingProduct = () => {
   const dispatch = useDispatch();
@@ -36,7 +37,15 @@ export const BestSellingProduct = () => {
     dispatch(setBestsellingProducts(products));
   }, [products]);
   return (
-    <div className=" px-8 max-sm:px-4 mt-[4rem] max-sm:mt-[2rem] font-rajdhani">
+    <motion.div
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true, amount: 0.1 }}
+      transition={{
+        duration: 1
+      }}
+      className=" px-8 max-sm:px-4 mt-[4rem] max-sm:mt-[2rem] font-rajdhani"
+    >
       <p className="font-bold text-2xl max-sm:text-lg link w-[18rem] max-sm:w-[14rem] hover:text-green-500 ">
         Best Selling Products
       </p>
@@ -47,7 +56,7 @@ export const BestSellingProduct = () => {
         </article>
       </div>
 
-      <main className="grid  max-md:grid-cols-3  [@media(min-width:400px)_and_(max-width:700px)]:grid-cols-2 grid-cols-[repeat(auto-fit,minmax(230px,1fr))] my-[4rem] max-sm:my-[4rem]  gap-4">
+      <main className="grid  max-md:grid-cols-3  [@media(min-width:380px)_and_(max-width:700px)]:grid-cols-2 grid-cols-[repeat(auto-fit,minmax(230px,1fr))] my-[4rem] max-sm:my-[4rem]  gap-4">
         {filteredProducts.map((product, i) => (
           <ProductCard
             key={i}
@@ -58,6 +67,6 @@ export const BestSellingProduct = () => {
           />
         ))}
       </main>
-    </div>
+    </motion.div>
   );
 };

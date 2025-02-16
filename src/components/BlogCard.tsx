@@ -33,10 +33,10 @@ export const BlogCard = ({ blog }: BlogType) => {
         duration: 1
       }}
     >
-      <Card className="w-full overflow-hidden h-full justify-between max-w-[300px] flex flex-col">
+      <Card className="w-full overflow-hidden h-full justify-between  flex flex-col">
         <CardHeader className="p-0">
           <LazyLoad placeholder="GTech">
-            <figure className="h-[12rem] max-sm:h-[7rem]">
+            <figure className="h-[8rem] max-sm:h-[7rem]">
               <img
                 src={blog.image}
                 alt={blog.title}
@@ -46,11 +46,11 @@ export const BlogCard = ({ blog }: BlogType) => {
           </LazyLoad>
         </CardHeader>
 
-        <CardContent className="max-sm:p-2">
-          <h2 className="text-xl font-semibold max-sm:text-sm mb-2">
+        <CardContent className=" p-2">
+          <h2 className="text-base h-[3rem] max-sm:h-auto font-semibold max-sm:text-sm mb-2">
             {blog.title}
           </h2>
-          <p className="text-sm max-sm:text-xs text-gray-600 mb-4">
+          <p className="text-sm [@media(min-width:380px)_and_(max-width:700px)]:text-xs text-gray-600 mb-4">
             {blog.shortDescription}
           </p>
         </CardContent>
@@ -66,14 +66,8 @@ export const BlogCard = ({ blog }: BlogType) => {
               <p className="text-sm max-sm:text-xs font-medium">
                 {blog.author}
               </p>
-              <p className="text-xs text-gray-500 max-sm:hidden">
+              <p className="text-xs text-gray-500 ">
                 {blog.date} · {blog.category}
-              </p>
-              <p className="hidden text-xs text-gray-500 max-sm:block">
-                {blog.date}
-              </p>
-              <p className="hidden text-xs text-gray-500 max-sm:block">
-                {blog.category}
               </p>
             </div>
           </div>

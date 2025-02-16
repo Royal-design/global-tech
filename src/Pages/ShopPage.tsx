@@ -15,10 +15,10 @@ export const ShopPage = () => {
           </div>
           <BreadCrumbs />
         </div>
-        <div className="pr-2 col-span-1 w-full max-sm:hidden h-[55rem]  ">
+        <div className="pr-2 col-span-1 w-full max-sm:hidden h-auto  ">
           <AccordionTest />
         </div>
-        <div className="banner col-span-3 h-[55rem] max-sm:h-full ">
+        <div className="banner col-span-3 h-auto max-sm:h-full ">
           <ShopBanner />
           <ShopProduct />
         </div>

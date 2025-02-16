@@ -55,7 +55,7 @@ export const RelatedProduct = () => {
         </Swiper>
       </div>
 
-      <div className="[@media(min-width:400px)_and_(max-width:700px)]:block hidden">
+      <div className="[@media(min-width:381px)_and_(max-width:700px)]:block hidden">
         <Swiper
           slidesPerView={2}
           spaceBetween={10}
@@ -76,7 +76,7 @@ export const RelatedProduct = () => {
           ))}
         </Swiper>
       </div>
-      <div className="[@media(max-width:399px)]:block hidden">
+      <div className="[@media(max-width:380px)]:block hidden">
         <Swiper
           slidesPerView={1}
           spaceBetween={10}

@@ -5,6 +5,7 @@ import kitchenGadgets from "../assets/category/kitchen-appliances.webp";
 import phoneAccessories from "../assets/category/phone-accessories.webp";
 import laptopPc from "../assets/category/pc-laptop.webp";
 import vrCamera from "../assets/category/vr-camera.webp";
+import { motion } from "framer-motion";
 
 export const CategorySession = () => {
   const categories = [
@@ -34,7 +35,15 @@ export const CategorySession = () => {
     }
   ];
   return (
-    <div className=" font-rajdhani my-[4rem] ">
+    <motion.div
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true, amount: 0.1 }}
+      transition={{
+        duration: 1
+      }}
+      className=" font-rajdhani my-[4rem] "
+    >
       <div className="flex mt-4 items-center justify-between px-8 max-sm:px-4">
         <Separator className="flex-1" />
         <p className="px-5 text-2xl max-sm:text-lg">Popular Category</p>
@@ -53,6 +62,6 @@ export const CategorySession = () => {
           </div>
         ))}
       </div>
-    </div>
+    </motion.div>
   );
 };

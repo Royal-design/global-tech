@@ -16,6 +16,7 @@ import { addFavorite, removeFavorite } from "@/redux/slice/favouriteSlice";
 import { useEffect } from "react";
 import { setRecommendedProducts } from "@/redux/slice/productSlice";
 import { ProductCard } from "@/components/ProductCard";
+import { motion } from "framer-motion";
 
 export const RecommendedProducts = () => {
   const dispatch = useDispatch();
@@ -46,7 +47,15 @@ export const RecommendedProducts = () => {
     dispatch(setRecommendedProducts(products));
   }, [dispatch]);
   return (
-    <div className="max-sm:px-4 px-8 mt-[4rem] max-sm:mt-[2rem] font-rajdhani">
+    <motion.div
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true, amount: 0.1 }}
+      transition={{
+        duration: 1
+      }}
+      className="max-sm:px-4 px-8 mt-[4rem] max-sm:mt-[2rem] font-rajdhani"
+    >
       <p className="font-bold text-2xl max-sm:text-lg  link w-[18rem] max-sm:w-[14rem] hover:text-green-500 ">
         Highly Recommended!
       </p>
@@ -57,7 +66,7 @@ export const RecommendedProducts = () => {
         </article>
       </div>
 
-      <main className="grid  max-md:grid-cols-3 gap-4  [@media(min-width:400px)_and_(max-width:700px)]:grid-cols-2 grid-cols-[repeat(auto-fit,minmax(230px,1fr))] my-[4rem] max-sm:my-[4rem] ">
+      <main className="grid  max-md:grid-cols-3 gap-4  [@media(min-width:380px)_and_(max-width:700px)]:grid-cols-2 grid-cols-[repeat(auto-fit,minmax(230px,1fr))] my-[4rem] max-sm:my-[4rem] ">
         {filteredProducts.map((product, i) => (
           <ProductCard
             key={i}
@@ -68,6 +77,6 @@ export const RecommendedProducts = () => {
           />
         ))}
       </main>
-    </div>
+    </motion.div>
   );
 };

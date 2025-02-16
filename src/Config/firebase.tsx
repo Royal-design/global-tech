@@ -12,7 +12,7 @@ import { getFunctions, httpsCallable } from "firebase/functions";
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyA7AwEQ4irOLeyI9vIIscIQMCmxOAgnQqg",
+  apiKey: import.meta.env.VITE_API_KEY,
   authDomain: "global-tech-df1dd.firebaseapp.com",
   projectId: "global-tech-df1dd",
   storageBucket: "global-tech-df1dd.firebasestorage.app",

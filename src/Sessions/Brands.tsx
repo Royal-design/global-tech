@@ -8,6 +8,7 @@ import oppo from "../assets/brands/Oppo-Logo.wine.png";
 import philips from "../assets/brands/philips.png";
 import samsung from "../assets/brands/Samsung-Logo-Transparent-PNG.png";
 import xiaomi from "../assets/brands/Xiaomi-Logo.png";
+import { motion } from "framer-motion";
 
 export const Brands = () => {
   const testimonials = [
@@ -23,7 +24,15 @@ export const Brands = () => {
   ];
 
   return (
-    <div className="">
+    <motion.div
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true, amount: 0.1 }}
+      transition={{
+        duration: 1
+      }}
+      className=""
+    >
       <div className="px-8 max-sm:px-4 max-sm:mt-[2rem]  mt-[2rem]">
         <h2 className="font-bold text-2xl  max-sm:text-lg link w-[18rem] hover:text-green-500 font-rajdhani">
           Brands We Distribute
@@ -37,6 +46,6 @@ export const Brands = () => {
           speed="slow"
         />
       </div>
-    </div>
+    </motion.div>
   );
 };
