@@ -47,7 +47,7 @@ export const BestSellingProduct = () => {
         </article>
       </div>
 
-      <main className="grid grid-cols-4 max-md:grid-cols-3  max-sm:grid-cols-2 my-[4rem] max-sm:my-[4rem]  gap-4">
+      <main className="grid  max-md:grid-cols-3  [@media(min-width:400px)_and_(max-width:700px)]:grid-cols-2 grid-cols-[repeat(auto-fit,minmax(230px,1fr))] my-[4rem] max-sm:my-[4rem]  gap-4">
         {filteredProducts.map((product, i) => (
           <ProductCard
             key={i}

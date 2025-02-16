@@ -222,9 +222,7 @@ export const ContactPage = () => {
           </Form>
         </div>
       </main>
-      <footer className="px-8">
-        <Footer />
-      </footer>
+      <Footer />
     </div>
   );
 };

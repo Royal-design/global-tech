@@ -215,11 +215,11 @@ export const AboutPage = () => {
           >
             <article>
               <p className="text-lg font-bold mb-4">What We Offer</p>
-              <div className="grid justify-center max-sm:grid-cols-2 max-md:grid-cols-3 max-lg:grid-cols-3 gap-4 ">
+              <div className="grid  [@media(min-width:400px)_and_(max-width:700px)]:grid-cols-2 gap-4 grid-cols-[repeat(auto-fit,minmax(230px,1fr))] ">
                 {data.map((data) => (
                   <Card
                     key={data.id}
-                    className="w-[18rem] max-sm:w-full max-md:w-full max-lg:w-full"
+                    className="w-[18rem] h-auto max-sm:w-full max-md:w-full max-lg:w-full"
                   >
                     <CardHeader className="py-1">
                       <CardTitle className="text-sm font-bold">
@@ -402,9 +402,7 @@ export const AboutPage = () => {
           </motion.div>
         </div>
       </section>
-      <footer className="px-8">
-        <Footer />
-      </footer>
+      <Footer />
     </div>
   );
 };

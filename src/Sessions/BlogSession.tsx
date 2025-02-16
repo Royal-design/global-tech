@@ -13,7 +13,7 @@ export const BlogSession = () => {
       <h2 className="font-bold text-2xl max-sm:text-lg link w-[9rem] hover:text-green-500 font-rajdhani">
         Latest Blogs
       </h2>
-      <main className="grid grid-cols-4 max-md:grid-cols-3 mt-[2rem] gap-4 max-sm:grid-cols-2">
+      <main className="grid  max-md:grid-cols-3 mt-[2rem] gap-4 [@media(min-width:400px)_and_(max-width:700px)]:grid-cols-2 grid-cols-[repeat(auto-fit,minmax(220px,1fr))]">
         {blogHomeData.map((blog) => (
           <BlogCard blog={blog} key={blog.id} />
         ))}

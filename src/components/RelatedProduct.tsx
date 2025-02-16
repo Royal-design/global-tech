@@ -55,9 +55,30 @@ export const RelatedProduct = () => {
         </Swiper>
       </div>
 
-      <div className="max-sm:block hidden">
+      <div className="[@media(min-width:400px)_and_(max-width:700px)]:block hidden">
         <Swiper
           slidesPerView={2}
+          spaceBetween={10}
+          navigation={true}
+          modules={[Navigation]}
+          className="mySwiper h-full w-full"
+        >
+          {bestSellingProducts.map((product, i) => (
+            <SwiperSlide key={i}>
+              <RelatedProductCard
+                key={i}
+                product={product}
+                isFavourite={isFavourite}
+                toggleFavorite={toggleFavorite}
+                addToCartClick={addToCartClick}
+              />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
+      <div className="[@media(max-width:399px)]:block hidden">
+        <Swiper
+          slidesPerView={1}
           spaceBetween={10}
           navigation={true}
           modules={[Navigation]}

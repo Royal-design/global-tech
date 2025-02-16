@@ -304,7 +304,7 @@ export const BlogDetailPage = () => {
                       </CardTitle>
                     </CardHeader>
                     <CardContent className="flex flex-col gap-1">
-                      <div className="flex w-full gap-5">
+                      <div className="flex w-full max-sm:flex-col gap-3">
                         <FormField
                           control={form.control}
                           name="firstname"
@@ -346,7 +346,7 @@ export const BlogDetailPage = () => {
                           )}
                         />
                       </div>
-                      <div className="flex w-full gap-5">
+                      <div className="flex w-full max-sm:flex-col gap-3">
                         <FormField
                           control={form.control}
                           name="address"
@@ -476,9 +476,8 @@ export const BlogDetailPage = () => {
           </section>
         </div>
       </main>
-      <footer className="px-8">
-        <Footer />
-      </footer>
+
+      <Footer />
     </div>
   );
 };

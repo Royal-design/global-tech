@@ -18,9 +18,7 @@ export const HomePage = () => {
       <BestSellingProduct />
       <Brands />
       <BlogSession />
-      <div className="px-8">
-        <Footer />
-      </div>
+      <Footer />
     </div>
   );
 };

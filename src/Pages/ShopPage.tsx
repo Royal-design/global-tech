@@ -7,10 +7,10 @@ import { ShopProduct } from "@/components/ShopProduct";
 
 export const ShopPage = () => {
   return (
-    <div className="px-8 max-sm:px-4">
-      <div className="grid grid-cols-[repeat(4,1fr)] max-sm:flex max-sm:flex-col mt-8 w-full">
-        <div className="hidden max-sm:mb-3  max-sm:block max-md:hidden">
-          <div className="flex gap-4 items-center">
+    <div className="">
+      <div className="px-8 max-sm:px-4 grid grid-cols-[repeat(4,1fr)] max-sm:flex max-sm:flex-col mt-8 w-full">
+        <div className="hidden max-sm:mb-3 max-sm:space-y-4  max-sm:block max-md:hidden">
+          <div className="flex gap-4  items-center">
             <FilterSheet />
           </div>
           <BreadCrumbs />
@@ -18,7 +18,7 @@ export const ShopPage = () => {
         <div className="pr-2 col-span-1 w-full max-sm:hidden h-[55rem]  ">
           <AccordionTest />
         </div>
-        <div className="banner col-span-3 h-[55rem] ">
+        <div className="banner col-span-3 h-[55rem] max-sm:h-full ">
           <ShopBanner />
           <ShopProduct />
         </div>

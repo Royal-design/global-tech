@@ -79,7 +79,7 @@
 }
 @layer components {
   .link {
-    @apply relative hover:text-gray-500;
+    @apply relative text-lg max-sm:text-base hover:text-gray-500;
   }
   .link::after {
     @apply content-[''] h-[2px] w-[0%] block  duration-300 left-0 bottom-0 absolute bg-gray-400;

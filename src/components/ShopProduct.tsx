@@ -63,11 +63,11 @@ export const ShopProduct = () => {
   };
   return (
     <div className="">
-      <div className="h-[22rem] p-2 max-sm:mt-[1rem] overflow-y-scroll shop-product mt-[4rem] font-rajdhani">
+      <div className="h-[22rem] max-sm:h-full p-2 max-sm:mt-[1rem] overflow-y-scroll shop-product mt-[4rem] font-rajdhani">
         <div className="max-sm:hidden ">
           <BreadCrumbs />
         </div>
-        <main className="grid max-md:grid-cols-3 grid-cols-4 max-sm:grid-cols-2  mt-[2rem] gap-4">
+        <main className="grid  grid-cols-[repeat(auto-fit,minmax(230px,1fr))] [@media(min-width:400px)_and_(max-width:700px)]:grid-cols-2 mt-[2rem] gap-4">
           {currentProducts.map((product, i) => (
             <ProductCard
               key={i}

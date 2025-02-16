@@ -42,16 +42,15 @@ export const BlogPage = () => {
           <article>
             <p className="text-lg my-2">Recent blog posts</p>
           </article>
-          <div className="grid grid-cols-[repeat(auto-fit,minmax(230px,1fr))] max-sm:grid-cols-2  max-md:grid-cols-3  gap-4">
+          <div className="grid  [@media(min-width:400px)_and_(max-width:700px)]:grid-cols-2 grid-cols-[repeat(auto-fit,minmax(230px,1fr))]  max-md:grid-cols-3  gap-4">
             {blogData.map((blog) => (
               <BlogCard blog={blog} key={blog.id} />
             ))}
           </div>
         </section>
       </main>
-      <footer className="px-8">
-        <Footer />
-      </footer>
+
+      <Footer />
     </div>
   );
 };
