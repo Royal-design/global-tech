@@ -51,7 +51,7 @@ const CartSheet = () => {
           </div>
         )}
       </SheetTrigger>
-      <SheetContent side="right" className="">
+      <SheetContent side="right" className="overflow-auto scrollbar-hidden">
         <SheetTitle />
         <SheetDescription />
         <div className="flex items-center gap-2">

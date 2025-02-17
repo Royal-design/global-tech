@@ -33,7 +33,7 @@ const FilterSheet = () => {
           </div>
         )}
       </SheetTrigger>
-      <SheetContent side="left" className="">
+      <SheetContent side="left" className="overflow-auto scrollbar-hidden">
         <SheetTitle />
         <SheetDescription />
         <AccordionTest />

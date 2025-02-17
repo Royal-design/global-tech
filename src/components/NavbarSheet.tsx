@@ -26,7 +26,7 @@ const NavbarSheet = () => {
           <X size={20} strokeWidth={1.5} onClick={() => setOpen(!open)} />
         )}
       </SheetTrigger>
-      <SheetContent side="left">
+      <SheetContent side="left" className="overflow-auto scrollbar-hidden">
         <SheetTitle />
         <SheetDescription />
         <div className=" flex flex-col justify-center items-center gap-4">
