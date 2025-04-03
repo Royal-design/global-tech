@@ -35,7 +35,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
       viewport={{ once: true, amount: 0.5 }}
       transition={{ duration: 1 }}
     >
-      <Card className="overflow-hidden w-full h-full flex flex-col justify-between hover:border-green-400 border duration-200">
+      <Card className="overflow-hidden max-w-xs h-full  flex flex-col justify-between hover:border-green-400 border duration-200">
         <Link to={`/product/${product.id}`}>
           <CardContent className="relative recommend-card p-0">
             <figure className="flex justify-center p-2 bg-background-card h-[12rem] max-sm:h-[8rem]">

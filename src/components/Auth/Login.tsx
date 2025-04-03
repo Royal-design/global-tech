@@ -56,7 +56,6 @@ export const Login = () => {
     dispatch(loginUser(userData.email, userData.password));
     try {
       await signInWithEmailAndPassword(auth, userData.email, userData.password);
-      console.log(userData);
       toast.success("User login successfully!");
       form.reset();
       navigate("/");

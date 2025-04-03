@@ -4,7 +4,7 @@ import { Search } from "lucide-react";
 import { UseProducts } from "@/Context/Products/UseProducts";
 
 export const BrandsCommand = () => {
-  const { allProducts, filterProducts, setFilterProducts } = UseProducts();
+  const { allProducts, setFilterProducts } = UseProducts();
   const [brands, setBrands] = useState<string[]>([]);
   const dataCategories = Array.from(
     new Set(allProducts.map((product) => product.brand))
@@ -17,7 +17,6 @@ export const BrandsCommand = () => {
     setBrands((prev) =>
       checked ? [...prev, value] : prev.filter((brand) => brand !== value)
     );
-    console.log(filterProducts);
 
     setFilterProducts(() => {
       const updatedBrands = checked
@@ -32,11 +31,6 @@ export const BrandsCommand = () => {
         updatedBrands.includes(product.brand.toLowerCase())
       );
     });
-
-    console.log(
-      "Selected brands:",
-      checked ? [...brands, value] : brands.filter((brand) => brand !== value)
-    );
   };
 
   const handleSearchChange = (e: ChangeEvent<HTMLInputElement>) => {

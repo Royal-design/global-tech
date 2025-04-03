@@ -4,7 +4,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import { MoveLeft, MoveRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ProductType } from "@/Context/Products/ProductProvider";
 import BreadCrumbs from "./BreadCrumbs";
 import { useDispatch, useSelector } from "react-redux";
@@ -53,6 +53,10 @@ export const ShopProduct = () => {
   const addToCartClick = (product: ProductType) => {
     dispatch(addToCart({ ...product, qty: 1 }));
   };
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [currentPage]);
 
   const toggleFavorite = (product: ProductType) => {
     if (isFavourite.find((item: ProductType) => item.id === product.id)) {

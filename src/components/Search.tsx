@@ -17,7 +17,6 @@ const Search = () => {
   };
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("submitted");
   };
   return (
     <div>

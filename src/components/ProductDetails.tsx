@@ -30,7 +30,6 @@ export const ProductDetails = ({ product }: ProductDetailsProps) => {
   const addToCartClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     const newProduct = { ...product, qty: quantity };
-    console.log(newProduct);
     dispatch(addToCart({ ...newProduct, qty: newProduct.qty }));
   };
 

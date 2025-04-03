@@ -76,7 +76,6 @@ export const EditProfile = () => {
       try {
         const docRef = doc(db, "users", user.uid);
         const userDoc = (await getDoc(docRef)).data() as UserType;
-        console.log(userDoc);
 
         // delete old photo if it exists
         if (userDoc.photoPath) {
@@ -112,7 +111,7 @@ export const EditProfile = () => {
         navigate("/profile");
       } catch (error) {
         if (error instanceof Error) {
-          console.log(error.message);
+          toast.error(error.message);
         }
       }
     }
