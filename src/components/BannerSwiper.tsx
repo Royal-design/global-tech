@@ -92,17 +92,17 @@ export const BannerSwiper = () => {
                   }`}
                 />
                 <div className="bg-background-banner absolute top-0 left-0 w-full h-full">
-                  <div className="flex flex-col justify-center font-rajdhani h-full w-[30rem] max-sm:w-full px-8 max-sm:px-4 gap-4">
+                  <div className="flex flex-col justify-center font-rajdhani h-full max-w-xl max-sm:w-full px-8 max-sm:px-4 gap-4">
                     <motion.h2
                       variants={title}
-                      className="text-5xl max-sm:text-3xl font-bold "
+                      className="text-6xl max-sm:text-3xl font-bold "
                     >
                       {data.heading}{" "}
                       <p className="text-green-500">{data.headingSpan}</p>
                     </motion.h2>
                     <motion.p
                       variants={heading1}
-                      className="text-xl max-sm:text-lg"
+                      className="text-2xl max-w-md max-sm:text-lg"
                     >
                       {data.text}
                     </motion.p>
