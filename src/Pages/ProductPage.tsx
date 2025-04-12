@@ -18,6 +18,7 @@ import { RelatedProduct } from "@/components/RelatedProduct";
 import { ProductTab } from "@/components/ProductTab";
 import BreadCrumbs from "@/components/BreadCrumbs";
 import { ProductSwiperMobile } from "@/components/ProductSwiperMobile";
+import { ScrollToTop } from "@/components/ScrollToTop";
 export const ProductPage = () => {
   const [thumbsSwiper, setThumbsSwiper] = useState<SwiperClass | null>(null);
 
@@ -101,6 +102,7 @@ export const ProductPage = () => {
       <ProductSwiperMobile />
       {product && <ProductTab key={product?.id} product={product} />}
       <RelatedProduct />
+      <ScrollToTop />
       <Footer />
     </div>
   );

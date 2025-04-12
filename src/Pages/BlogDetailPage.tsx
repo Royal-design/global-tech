@@ -45,6 +45,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Footer } from "@/components/Footer";
 import BlogSearchSheet from "@/components/BlogSearchSheet";
 import { toast } from "sonner";
+import { ScrollToTop } from "@/components/ScrollToTop";
 
 export const BlogDetailPage = () => {
   const { user } = UseAuthContext();
@@ -476,7 +477,7 @@ export const BlogDetailPage = () => {
           </section>
         </div>
       </main>
-
+      <ScrollToTop />
       <Footer />
     </div>
   );

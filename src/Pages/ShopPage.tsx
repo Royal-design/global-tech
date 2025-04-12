@@ -2,6 +2,7 @@ import { AccordionTest } from "@/components/AccordionTest";
 import BreadCrumbs from "@/components/BreadCrumbs";
 import FilterSheet from "@/components/FilterSheet";
 import { Footer } from "@/components/Footer";
+import { ScrollToTop } from "@/components/ScrollToTop";
 import { ShopBanner } from "@/components/ShopBanner";
 import { ShopProduct } from "@/components/ShopProduct";
 
@@ -23,6 +24,7 @@ export const ShopPage = () => {
           <ShopProduct />
         </div>
       </div>
+      <ScrollToTop />
       <Footer />
     </div>
   );

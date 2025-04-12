@@ -1,6 +1,8 @@
 import { BlogCard } from "@/components/BlogCard";
 import BreadCrumbs from "@/components/BreadCrumbs";
 import { Footer } from "@/components/Footer";
+import { ScrollToTop } from "@/components/ScrollToTop";
+import { motion } from "framer-motion";
 
 // import hero from "../assets/blog/hero.jpg";
 import { blogData } from "@/data/Blogs";
@@ -20,21 +22,41 @@ export const BlogPage = () => {
           />
           <article className="absolute h-full w-full top-0 bg-background-banner ">
             <div className="h-full w-full flex flex-col max-sm:px-2 items-center justify-center">
-              <h1 className="text-4xl max-sm:text-2xl max-md:text-2xl font-extrabold text-white dark:text-gray-100">
+              <motion.h1
+                initial={{ y: -10, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.5 }}
+                className="text-4xl max-sm:text-2xl max-md:text-2xl font-extrabold text-white dark:text-gray-100"
+              >
                 Stay Ahead in Tech Innovation
-              </h1>
-              <p className="text-lg text-gray-300 max-sm:text-sm  max-sm:text-center  dark:text-gray-300 mt-4">
+              </motion.h1>
+              <motion.p
+                initial={{ y: 10, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.5 }}
+                className="text-xl text-gray-300 max-sm:text-base  max-sm:text-center  dark:text-gray-300 mt-4"
+              >
                 Your Gateway to the Latest Trends, Tutorials, and Insights in
                 the Tech World.
-              </p>
-              <p className="text-lg max-sm:text-sm text-gray-300 dark:text-gray-300 mt-4 max-sm:w-full w-[60%] text-center">
+              </motion.p>
+              <motion.p
+                initial={{ y: 10, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.5 }}
+                className="text-xl max-sm:text-base text-gray-300 dark:text-gray-300 mt-4 max-sm:w-full w-[60%] text-center"
+              >
                 From groundbreaking technologies to hands-on tutorials, our blog
                 empowers tech enthusiasts, developers, and innovators to stay
                 informed and inspired.
-              </p>
-              <div className="mt-8 ">
+              </motion.p>
+              <motion.div
+                initial={{ scale: 0.7, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                className="mt-8 "
+              >
                 <BreadCrumbs />
-              </div>
+              </motion.div>
             </div>
           </article>
         </section>
@@ -49,7 +71,7 @@ export const BlogPage = () => {
           </div>
         </section>
       </main>
-
+      <ScrollToTop />
       <Footer />
     </div>
   );

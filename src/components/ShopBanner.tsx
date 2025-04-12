@@ -1,6 +1,7 @@
 import shopBanner from "../assets/banner/banner03.webp";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper/modules";
+import { motion } from "framer-motion";
 
 import "swiper/css";
 import "swiper/css/pagination";
@@ -21,15 +22,6 @@ export const ShopBanner = () => {
   ];
   return (
     <div>
-      {/* <div className="hidden max-sm:block">
-        <figure className=" relative h-[10rem] w-full ">
-          <img
-            src={shopBanner}
-            alt="shop-banner"
-            className="absolute  h-full w-full  object-cover"
-          />
-        </figure>
-      </div> */}
       <div className="w-full h-[26rem] bg-gray-400 shop-container max-sm:hidden">
         <Swiper
           autoplay={{ delay: 4000 }}
@@ -41,8 +33,22 @@ export const ShopBanner = () => {
             <SwiperSlide key={i}>
               <div className="flex justify-between w-full h-full">
                 <div className="banner-content pt-2 px-6 font-rajdhani dark:bg-[#211801] bg-[#fff6ed] max-md:w-[60%] w-[40%]">
-                  <p className="font-bold text-3xl mt-8">{data.title}</p>
-                  <p className="text-lg w-[90%] mt-2">{data.body}</p>
+                  <motion.p
+                    initial={{ y: -10, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ duration: 0.5 }}
+                    className="font-bold text-3xl mt-8"
+                  >
+                    {data.title}
+                  </motion.p>
+                  <motion.p
+                    initial={{ y: 10, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ duration: 0.5 }}
+                    className="text-lg w-[90%] mt-2"
+                  >
+                    {data.body}
+                  </motion.p>
                 </div>
                 <figure className="flex-1 relative h-full w-full ">
                   <img
@@ -76,8 +82,22 @@ export const ShopBanner = () => {
                   />
                 </figure>
                 <div className="banner-content  px-6 font-rajdhani dark:bg-[#211801] bg-[#fff6ed]  w-full h-full">
-                  <p className="font-bold text-lg  mt-8">{data.title}</p>
-                  <p className="text-base  mt-2">{data.body}</p>
+                  <motion.p
+                    initial={{ y: -10, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ duration: 0.5 }}
+                    className="font-bold text-lg  mt-8"
+                  >
+                    {data.title}
+                  </motion.p>
+                  <motion.p
+                    initial={{ y: 10, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ duration: 0.5 }}
+                    className="text-base  mt-2"
+                  >
+                    {data.body}
+                  </motion.p>
                 </div>
               </div>
             </SwiperSlide>

@@ -1,7 +1,9 @@
 import BreadCrumbs from "@/components/BreadCrumbs";
 import { Footer } from "@/components/Footer";
+import { ScrollToTop } from "@/components/ScrollToTop";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { motion } from "framer-motion";
+import { useEffect } from "react";
 
 const data = [
   {
@@ -39,6 +41,9 @@ const data = [
 ];
 
 export const AboutPage = () => {
+  useEffect(() => {
+    window.scrollTo({ top: 0 });
+  }, []);
   return (
     <div>
       <header className="h-[29rem] max-sm:h-full font-rajdhani relative w-full">
@@ -49,18 +54,33 @@ export const AboutPage = () => {
         />
         <article className="absolute h-full w-full max-sm:text-center  top-0 bg-background-banner ">
           <div className="h-full w-full max-sm:px-2 flex flex-col gap-4 items-center justify-center">
-            <h1 className="text-4xl font-extrabold text-white dark:text-gray-100">
+            <motion.h1
+              initial={{ y: -10, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.5 }}
+              className="text-4xl font-extrabold text-white dark:text-gray-100"
+            >
               About Us
-            </h1>
-            <p className="text-lg max-sm:text-[16px] text-center max-md:w-full max-md:px-4 max-sm:w-full max-sm:px-4  w-[50%] text-gray-300 dark:text-gray-300 mt-4">
+            </motion.h1>
+            <motion.p
+              initial={{ y: 10, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.5 }}
+              className="text-xl max-sm:text-[16px] text-center max-md:w-full max-md:px-4 max-sm:w-full max-sm:px-4  w-[70%] text-gray-300 dark:text-gray-300 mt-4"
+            >
               At Global Tech, we are passionate about bridging the gap between
               cutting-edge technology and our customers.We aim to be your
               one-stop destination for the latest gadgets, electronics, and tech
               accessories that elevate your lifestyle.
-            </p>
-            <div className="bg-background-banner rounded-full px-2">
+            </motion.p>
+            <motion.div
+              initial={{ scale: 0.7, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="bg-background-banner rounded-full px-2"
+            >
               <BreadCrumbs />
-            </div>
+            </motion.div>
           </div>
         </article>
       </header>
@@ -75,22 +95,24 @@ export const AboutPage = () => {
             }}
             className="flex gap-8 max-sm:flex-col justify-between w-full"
           >
-            <figure className="max-sm:w-full w-[40%] h-[15rem]">
+            <figure className="max-sm:w-full w-[40%]">
               <img
                 src="https://media.istockphoto.com/id/1481370371/photo/portrait-of-enthusiastic-hispanic-young-woman-working-on-computer-in-a-modern-bright-office.jpg?s=612x612&w=0&k=20&c=8kNce9Ruc9F2KXvnwf0stWQXCwwQTBCrW8efrqhUIa4="
                 alt="mission"
-                className="h-full object-cover w-full"
+                className="h-full rounded-3xl object-cover w-full"
               />
             </figure>
 
             <article className="w-[60%] max-sm:w-full">
-              <p className="text-2xl font-bold mb-4">Our Mission</p>
-              <p className="text-sm leading-[1.5rem] ">
+              <p className="text-3xl max-sm:text-2xl font-bold mb-4">
+                Our Mission
+              </p>
+              <p className="leading-[1.5rem] ">
                 Our mission is to provide innovative, high-quality, and
                 affordable tech solutions to our customers while ensuring
                 exceptional service and a seamless shopping experience.
               </p>
-              <ul className="list-disc mt-2 text-sm leading-[1.5rem] ml-7">
+              <ul className="list-disc mt-2 leading-[2rem] ml-7">
                 <li>
                   Deliver the latest technology products at unbeatable prices
                 </li>
@@ -112,7 +134,9 @@ export const AboutPage = () => {
             className="flex max-sm:hidden gap-8"
           >
             <article className="w-[60%]">
-              <p className="text-2xl font-bold mb-4">Our Vision</p>
+              <p className="text-3xl max-sm:text-2xl font-bold mb-4">
+                Our Vision
+              </p>
 
               <p className="text-sm leading-[1.5rem]">
                 Our vision is to create a world where technology is accessible,
@@ -122,7 +146,7 @@ export const AboutPage = () => {
                 our global community.
               </p>
 
-              <ul className="list-disc mt-2 text-sm ml-7 leading-[1.5rem]">
+              <ul className="list-disc mt-2  ml-7 leading-[2rem]">
                 <li>
                   Empowering Innovation: We envision a future where innovation
                   drives progress. By connecting our customers to the latest
@@ -149,7 +173,7 @@ export const AboutPage = () => {
               <img
                 src="https://media.istockphoto.com/id/1278669948/photo/hand-touch-connects-business-disruption-partners-handshake-with-world-globe-cityscape.jpg?s=612x612&w=0&k=20&c=nfCvpBsapjU1NHa5EYe7QvWeChoOBCt6YvP9tnTqih0="
                 alt="mission"
-                className="h-full object-cover w-full"
+                className="h-full rounded-3xl object-cover w-full"
               />
             </figure>
           </motion.div>
@@ -166,13 +190,15 @@ export const AboutPage = () => {
               <img
                 src="https://media.istockphoto.com/id/1278669948/photo/hand-touch-connects-business-disruption-partners-handshake-with-world-globe-cityscape.jpg?s=612x612&w=0&k=20&c=nfCvpBsapjU1NHa5EYe7QvWeChoOBCt6YvP9tnTqih0="
                 alt="mission"
-                className="h-full object-cover w-full"
+                className="h-full rounded-3xl object-cover w-full"
               />
             </figure>
             <article className="w-full">
-              <p className="text-2xl font-bold mb-4">Our Vision</p>
+              <p className="text-3xl max-sm:text-2xl font-bold mb-4">
+                Our Vision
+              </p>
 
-              <p className="text-sm leading-[1.5rem]">
+              <p className="leading-[2rem]">
                 Our vision is to create a world where technology is accessible,
                 empowering, and transformative for everyone. We strive to become
                 the go-to destination for tech enthusiasts and professionals
@@ -180,7 +206,7 @@ export const AboutPage = () => {
                 our global community.
               </p>
 
-              <ul className="list-disc mt-2 text-sm ml-7 leading-[1.5rem]">
+              <ul className="list-disc mt-2  ml-7 leading-[2rem]">
                 <li>
                   Empowering Innovation: We envision a future where innovation
                   drives progress. By connecting our customers to the latest
@@ -214,7 +240,9 @@ export const AboutPage = () => {
             className="flex flex-col gap-2"
           >
             <article>
-              <p className="text-2xl font-bold mb-4">What We Offer</p>
+              <p className="text-3xl max-sm:text-2xl font-bold mb-4">
+                What We Offer
+              </p>
               <div className="grid  [@media(min-width:400px)_and_(max-width:700px)]:grid-cols-2 gap-4 grid-cols-[repeat(auto-fit,minmax(230px,1fr))] ">
                 {data.map((data) => (
                   <Card
@@ -244,7 +272,9 @@ export const AboutPage = () => {
             className="flex  max-sm:hidden gap-8"
           >
             <article className="w-[60%]">
-              <p className="text-2xl font-bold mb-4">Our Core Values</p>
+              <p className="text-3xl max-sm:text-2xl font-bold mb-4">
+                Our Core Values
+              </p>
 
               <ul className=" mt-2 text-lg flex flex-col gap-2">
                 <li className="bg-slate-300 dark:bg-slate-600 pt-1">
@@ -269,11 +299,11 @@ export const AboutPage = () => {
                 </li>
               </ul>
             </article>
-            <figure className="  w-[40%] h-[15rem]">
+            <figure className="w-[40%] h-[15rem]">
               <img
                 src="https://images.unsplash.com/photo-1600469984476-c713650f1b1b?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDF8fHxlbnwwfHx8fHw%3D"
                 alt="mission"
-                className="h-full object-cover w-full"
+                className="h-full  rounded-3xl object-cover w-full"
               />
             </figure>
           </motion.div>
@@ -294,7 +324,9 @@ export const AboutPage = () => {
               />
             </figure>
             <article className="w-full">
-              <p className="text-2xl font-bold mb-4">Our Core Values</p>
+              <p className="text-3xl max-sm:text-2xl font-bold mb-4">
+                Our Core Values
+              </p>
 
               <ul className=" mt-2 text-sm flex flex-col gap-4">
                 <li className="bg-slate-300 dark:bg-slate-600 pt-1">
@@ -391,8 +423,10 @@ export const AboutPage = () => {
               </motion.div>
             </div>
             <article className="">
-              <p className="text-2xl font-bold mb-4">Our Team</p>
-              <p className="max-sm:text-sm   max-sm:leading-[1.5rem]">
+              <p className="text-3xl max-sm:text-2xl font-bold mb-4">
+                Our Team
+              </p>
+              <p className=" max-sm:leading-[1.5rem]">
                 Behind Global Tech is a dedicated team of tech-savvy
                 professionals. We work tirelessly to source the best products,
                 test their quality, and provide detailed information to help you
@@ -402,6 +436,7 @@ export const AboutPage = () => {
           </motion.div>
         </div>
       </section>
+      <ScrollToTop />
       <Footer />
     </div>
   );

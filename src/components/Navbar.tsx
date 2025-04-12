@@ -50,7 +50,7 @@ const Navbar = () => {
             isPinned && scrolled ? " shadow-md" : ""
           }`}
         >
-          <div className="flex gap-2 items-center">
+          <div className="flex gap-4 items-center">
             <div className="hidden  max-sm:block ">
               <NavbarSheet />
             </div>
@@ -62,10 +62,10 @@ const Navbar = () => {
           </div>
 
           <div className="flex items-center gap-4">
-            <div>
+            <div className="max-sm:hidden">
               <Switch />
             </div>
-            <div>
+            <div className="max-sm:hidden">
               <ProfileMenu />
             </div>
             <div className="relative font-rajdhani">

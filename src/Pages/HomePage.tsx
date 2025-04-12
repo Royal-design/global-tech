@@ -1,6 +1,7 @@
 import { Banner } from "@/components/Banner";
 import { Footer } from "@/components/Footer";
 import { NewDeals } from "@/components/NewDeals";
+import { ScrollToTop } from "@/components/ScrollToTop";
 
 import { BestSellingProduct } from "@/Sessions/BestSellingProduct";
 import { BlogSession } from "@/Sessions/BlogSession";
@@ -18,6 +19,7 @@ export const HomePage = () => {
       <BestSellingProduct />
       <Brands />
       <BlogSession />
+      <ScrollToTop />
       <Footer />
     </div>
   );

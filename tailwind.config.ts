@@ -38,6 +38,8 @@ const config: Config = {
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
         "background-navbar": "var(--navbar-background)",
+        "light-color": "var(--light-color)",
+        "lighter-color": "var(--lighter-color)",
         "background-toast": "var(--background-toast)",
         "background-banner": "var(--banner-background)",
         "background-card": "var(--background-card)",

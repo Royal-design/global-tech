@@ -29,6 +29,8 @@ import { UseAuthContext } from "@/Context/Auth/UseAuthContext";
 import { db } from "@/Config/firebase";
 import { Footer } from "@/components/Footer";
 import { useEffect } from "react";
+import { motion } from "framer-motion";
+
 export const ContactPage = () => {
   const { user } = UseAuthContext();
   const commentSchema = z.object({
@@ -95,22 +97,40 @@ export const ContactPage = () => {
           />
           <article className="absolute max-sm:text-center max-sm:px-2 h-full w-full  top-0 bg-background-banner ">
             <div className="h-full w-full flex flex-col items-center justify-center">
-              <h1 className="text-4xl font-extrabold text-white dark:text-gray-100">
+              <motion.h1
+                initial={{ y: -10, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.5 }}
+                className="text-4xl font-extrabold text-white dark:text-gray-100"
+              >
                 Contact Us
-              </h1>
-              <p className="text-lg max-sm:text-[16px] text-center max-md:w-full max-md:px-4 max-sm:w-full max-sm:px-4  w-[50%] text-gray-300 dark:text-gray-300 mt-4">
+              </motion.h1>
+              <motion.p
+                initial={{ y: 10, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.5 }}
+                className="text-lg max-sm:text-[16px] text-center max-md:w-full max-md:px-4 max-sm:w-full max-sm:px-4  w-[50%] text-gray-300 dark:text-gray-300 mt-4"
+              >
                 We’d love to hear from you! Fill out the form below, and our
                 team will get back to you as soon as possible.
-              </p>
-              <div className="bg-background-banner rounded-full px-2">
+              </motion.p>
+              <motion.div
+                initial={{ scale: 0.7, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                className="bg-background-banner rounded-full px-2"
+              >
                 <BreadCrumbs />
-              </div>
+              </motion.div>
             </div>
           </article>
         </header>
         <div className="flex container max-sm:flex-col gap-8 w-full max-sm:px-4 justify-center  mt-6">
           <Form {...form}>
-            <form
+            <motion.form
+              initial={{ scale: 0.7, opacity: 0, y: -10 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
               onSubmit={form.handleSubmit(handleSubmit)}
               className=" flex-1"
             >
@@ -223,9 +243,14 @@ export const ContactPage = () => {
                   </Button>
                 </CardFooter>
               </Card>
-            </form>
+            </motion.form>
           </Form>
-          <div className="space-y-4 flex-1  pb-6">
+          <motion.div
+            initial={{ scale: 0.7, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="space-y-4 flex-1  pb-6"
+          >
             <h2 className="text-2xl mb-6 max-sm:text-2xl text-center font-semibold">
               Contact Details
             </h2>
@@ -265,7 +290,7 @@ export const ContactPage = () => {
                 </p>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </main>
       <Footer />

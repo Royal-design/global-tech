@@ -19,7 +19,7 @@ export const ProfileMenu = () => {
   return (
     <DropdownMenu open={open} onOpenChange={setOpen}>
       <DropdownMenuTrigger asChild>
-        <div className="cursor-pointer">
+        <div className="cursor-pointer border rounded-full p-[2px]">
           <UserRound strokeWidth={1.5} />
         </div>
       </DropdownMenuTrigger>
