@@ -2,7 +2,7 @@
 
 ### Web Link
 
-[click the link to access the site](https://global-tech-five.vercel.app/)
+[click the link to access the site](https://global-tech-ecommerce.vercel.app/)
 
 ## Overview
 
