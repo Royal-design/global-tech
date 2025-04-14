@@ -32,7 +32,7 @@ const NavbarSheet = () => {
       <SheetContent side="left" className="overflow-auto scrollbar-hidden">
         <SheetTitle />
         <SheetDescription />
-        <div className=" flex flex-col h-full justify-between gap-4 px-4">
+        <div className=" flex flex-col h-full justify-between gap-4">
           <div className="flex flex-col gap-4">
             <NavLink
               onClick={() => {

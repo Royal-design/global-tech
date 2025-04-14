@@ -23,13 +23,4 @@ Global Tech Ecommerce Website is a fully functional online store built with mode
 - **Context API**: For managing database state and user-specific data like order history.
 - **Firebase**: For authentication, Firestore, and cloud functions.
 - **ShadCN**: For the user interface (UI) components.
-- **Stripe**: For payment processing.
-
-## Getting Started
-
-### Prerequisites
-
-Make sure you have the following installed:
-
-- **Node.js** (v16.x or later)
-- **npm** (v7.x or later)
+- **Stripe**: For dummy payment processing.
