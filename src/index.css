@@ -144,7 +144,6 @@
   display: flex;
   gap: 2rem;
   .swiper-pagination-bullet {
-    font-family: "Rajdhani";
     font-size: 12px;
     color: #d5d2d2;
     cursor: pointer;
